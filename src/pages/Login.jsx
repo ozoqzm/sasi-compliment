@@ -27,7 +27,7 @@ const Title = styled.div`
   color: #3b6ae3;
 `;
 
-const Name = styled.div`
+const Email = styled.div`
   position: relative;
   width: 50px;
   height: 17px;
@@ -44,40 +44,12 @@ const Name = styled.div`
   color: #3b6ae3;
 `;
 
-const Name_box = styled.input`
-  position: relative;
-  width: 356px;
-  height: 48px;
-  left: 1px;
-  top: 100px;
-
-  border: 1.5px solid #4176ff;
-  border-radius: 7px;
-`;
-
-const Email = styled.div`
-  position: relative;
-  width: 50px;
-  height: 17px;
-  left: 10px;
-
-  top: 130px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-
-  color: #3b6ae3;
-`;
-
 const Email_box = styled.input`
   position: relative;
   width: 356px;
   height: 48px;
   left: 1px;
-  top: 140px;
+  top: 100px;
 
   border: 1.5px solid #4176ff;
   border-radius: 7px;
@@ -89,7 +61,7 @@ const Password = styled.div`
   height: 17px;
   left: 10px;
 
-  top: 170px;
+  top: 130px;
 
   font-family: "Inter";
   font-style: normal;
@@ -105,7 +77,7 @@ const Password_box = styled.input`
   width: 356px;
   height: 48px;
   left: 1px;
-  top: 180px;
+  top: 140px;
 
   border: 1.5px solid #4176ff;
   border-radius: 7px;
@@ -116,7 +88,7 @@ const Start_box = styled.button`
   width: 345px;
   height: 51px;
   left: 1px;
-  top: 400px;
+  top: 470px;
   border: none;
 
   background: #3b6ae3;
@@ -125,7 +97,7 @@ const Start_box = styled.button`
 
 const Start_text = styled.div`
   position: relative;
-  width: 60px;
+  width: 70px;
   height: 17px;
   left: 140px;
 
@@ -141,27 +113,24 @@ const Start_text = styled.div`
   color: #ffffff;
 `;
 
-const Signup = () => {
+const Login = () => {
   return (
     <Container>
-      <Title>회원가입</Title>
+      <Title>로그인</Title>
       <p1>
-        <Name>닉네임</Name>
-        <Name_box></Name_box>
-      </p1>
-      <p2>
         <Email>이메일</Email>
         <Email_box></Email_box>
-      </p2>
-      <p3>
+      </p1>
+      <p2>
         <Password>비밀번호</Password>
         <Password_box></Password_box>
-      </p3>
+      </p2>
+
       <Start_box>
-        <Start_text>시작하기</Start_text>
+        <Start_text>로그인하기</Start_text>
       </Start_box>
     </Container>
   );
 };
 
-export default Signup;
+export default Login;
