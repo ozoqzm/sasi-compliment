@@ -46,100 +46,49 @@ const InputBox = styled.textarea`
   outline: none;
   resize: none;
 `;
-const CheckSet = styled.div`
+const ProfilePic = styled.div`
   position: relative;
-  left: 250px;
-  display: inline-block;
-`;
-const CameraBtn = styled.div`
-  position: relative;
-  left: 15px;
-  width: 30px;
-  height: 30px;
-  top: 7px;
-  flex-shrink: 0;
-  background-image: url("${process.env.PUBLIC_URL}/images/camera.svg");
+  width: 35px;
+  height: 35px;
+  left: 3px;
+  margin-top: 10px;
+  background-image: url("${process.env.PUBLIC_URL}/images/profilecircle.svg");
   background-size: cover;
   display: inline-block;
 `;
-const AnonyText = styled.div`
+const UserName = styled.div`
   position: relative;
   display: inline-block;
+  margin-left: 10px;
+  top: -9px;
   color: #3b6ae3;
   font-family: Inter;
-  font-size: 12px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 10px;
 `;
-const GoButton = styled.button`
-  position: rleative;
-  margin: auto;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 345px;
-  height: 51px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #1647c3;
-  color: #fff;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  border: none;
-`;
-
-// 체크박스 컴포넌트
-function Checkbox({ children, disabled, checked, onChange }) {
-  return (
-    <label>
-      <input
-        type="checkbox"
-        disabled={disabled}
-        checked={checked}
-        onChange={({ target: { checked } }) => onChange(checked)}
-      />
-      {children}
-    </label>
-  );
-}
 
 //func
-const Write = () => {
+const Read = () => {
   const navigate = useNavigate();
 
   const gotoMain = () => {
     navigate("/Main");
   };
-  const gotoComplete = () => {
-    navigate("/Complete");
-  };
-
-  const [anonymous, setAnonymous] = useState(false);
 
   return (
     <Container>
       <ContentBox>
         <Back onClick={gotoMain}></Back>
         <InputBorder>
+          <ProfilePic></ProfilePic>
+          <UserName>닉네임</UserName>
           <InputBox></InputBox>
-          <CameraBtn></CameraBtn>
-          <CheckSet>
-            <Checkbox checked={anonymous} onChange={setAnonymous}>
-              <AnonyText>익명</AnonyText>
-            </Checkbox>
-          </CheckSet>
         </InputBorder>
-
-        <GoButton onClick={gotoComplete}>메세지 작성하기</GoButton>
       </ContentBox>
     </Container>
   );
 };
 
-export default Write;
+export default Read;
