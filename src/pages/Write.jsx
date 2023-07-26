@@ -40,7 +40,7 @@ const InputBox = styled.textarea`
   position: relative;
   margin: auto;
   width: 337px;
-  height: 390px;
+  height: 220px;
   border: none;
   background: none;
   outline: none;
@@ -51,7 +51,7 @@ const CheckSet = styled.div`
   left: 250px;
   display: inline-block;
 `;
-const CameraBtn = styled.div`
+const CameraBtn = styled.input`
   position: relative;
   left: 15px;
   width: 30px;
@@ -132,6 +132,19 @@ const Write = () => {
     navigate("/Complete");
   };
 
+  const [imageFile, setImageFile] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageFile(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <Container>
       <ContentBox>
@@ -145,7 +158,16 @@ const Write = () => {
               value={text}
               onChange={(e) => setText(e.target.value)}
             ></InputBox>
-            <CameraBtn></CameraBtn>
+            <div>
+              {imageFile && (
+                <img
+                  src={imageFile}
+                  alt="Uploaded Preview"
+                  style={{ width: "300px" }}
+                />
+              )}
+            </div>
+            <CameraBtn type="file" onChange={handleImageChange}></CameraBtn>
             <CheckSet>
               <Checkbox checked={anonymous} onChange={setAnonymous}>
                 <AnonyText>익명</AnonyText>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import ModalBasic from "./ModalBasic";
 
 const Container = styled.div`
   position: relative;
@@ -118,6 +119,14 @@ const Read = () => {
     navigate("/Main");
   };
 
+  // 모달창 노출 여부 state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true);
+  };
+
   return (
     <Container>
       <ContentBox>
@@ -139,18 +148,11 @@ const Read = () => {
       <br />
       <button onClick={handleDeleteButton}>글 삭제</button>
       <button onClick={handleUpdateButton}>글 수정</button>
+      <div>
+        <button onClick={showModal}>모달 띄우기</button>
+        {modalOpen && <ModalBasic setModalOpen={setModalOpen} />}
+      </div>
     </Container>
-    // <div>
-    //   <button onClick={handleDeleteButton}>글 삭제</button>
-    //   <button onClick={handleUpdateButton}>글 수정</button>
-    //   <form>
-    //     <input
-    //       type="text"
-    //       value={text}
-    //       onChange={(e) => setText(e.target.value)}
-    //     />
-    //   </form>
-    // </div>
   );
 };
 
