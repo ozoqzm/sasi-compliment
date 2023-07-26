@@ -14,6 +14,7 @@ const Container = styled.div`
 const ContentBox = styled.div`
   position: relative;
   top: 6%;
+  height: 600px;
   margin: auto;
 `;
 const TextBox = styled.div`
@@ -51,18 +52,26 @@ const Whale = styled.div`
   flex-shrink: 0;
   background: url("${process.env.PUBLIC_URL}/images/movingwhale.svg");
   background-size: cover;
+  animation: motion 0.3s linear 0s infinite alternate;
+
+  @keyframes motion {
+    0% {
+      margin-top: 0px;
+    }
+    100% {
+      margin-top: 12px;
+    }
+  }
 `;
 const CloseBtn = styled.button`
   position: rleative;
   margin: auto;
-  margin-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 345px;
   height: 51px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: #1647c3;
   color: #fff;
@@ -92,8 +101,8 @@ const Complete = () => {
         </TextBox2>
         {/* 이미지 흔들리도록 */}
         <Whale></Whale>
-        <CloseBtn onClick={gotoMain}>닫기</CloseBtn>
       </ContentBox>
+      <CloseBtn onClick={gotoMain}>닫기</CloseBtn>
     </Container>
   );
 };
