@@ -13,6 +13,11 @@ import Complete2 from "./pages/Complete2";
 import Main2 from "./pages/Main2";
 import Read2 from "./pages/Read2";
 import Write2 from "./pages/Write2";
+import Splash from "./pages/Splash";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Point from "./pages/Point";
+import Pointshop from "./pages/Pointshop";
 
 function App() {
   return (
@@ -26,6 +31,10 @@ function App() {
           <Route path="/Write" element={<Write />} />{" "}
           <Route path="/Complete" element={<Complete />} />{" "}
           <Route path="/Read" element={<Read />} />{" "}
+          <Route path="/Splash" element={<Splash />} />{" "}
+          <Route path="/Signup" element={<Signup />} />{" "}
+          <Route path="/Pointshop" element={<Pointshop />} />{" "}
+          <Route path="/Login" element={<Login />} />{" "}
           <Route path="/Mypage" element={<Mypage />} />{" "}
           {/* /Mypage 경로에 Mypage 컴포넌트를 매핑 */}
           <Route path="/Profile" element={<Profile />} />{" "}
