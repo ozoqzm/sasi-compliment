@@ -64,7 +64,7 @@ const Whale = styled.div`
   }
 `;
 const CloseBtn = styled.button`
-  position: rleative;
+  position: relative;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@ const Complete = () => {
   const navigate = useNavigate();
 
   const gotoMain = () => {
-    navigate("/Main");
+    navigate("/");
   };
 
   return (

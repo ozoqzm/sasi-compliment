@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useRef } from "react";
 
 const Container = styled.div`
   position: relative;
@@ -40,7 +41,7 @@ const InputBox = styled.textarea`
   position: relative;
   margin: auto;
   width: 337px;
-  height: 220px;
+  height: 200px;
   border: none;
   background: none;
   outline: none;
@@ -51,7 +52,7 @@ const CheckSet = styled.div`
   left: 250px;
   display: inline-block;
 `;
-const CameraBtn = styled.input`
+const CameraBtn = styled.div`
   position: relative;
   left: 15px;
   width: 30px;
@@ -132,6 +133,8 @@ const Write = () => {
     navigate("/Complete");
   };
 
+  // 이미지 업로드
+  const selectFile = useRef("");
   const [imageFile, setImageFile] = useState(null);
 
   const handleImageChange = (e) => {
@@ -158,16 +161,23 @@ const Write = () => {
               value={text}
               onChange={(e) => setText(e.target.value)}
             ></InputBox>
-            <div>
+            <div style={{ height: "190px", margin: "auto" }}>
               {imageFile && (
                 <img
                   src={imageFile}
                   alt="Uploaded Preview"
-                  style={{ width: "300px" }}
+                  style={{ width: "340px" }}
                 />
               )}
             </div>
-            <CameraBtn type="file" onChange={handleImageChange}></CameraBtn>
+            <CameraBtn onClick={() => selectFile.current.click()}>
+              <input
+                type="file"
+                onChange={handleImageChange}
+                style={{ display: "none" }}
+                ref={selectFile}
+              />
+            </CameraBtn>
             <CheckSet>
               <Checkbox checked={anonymous} onChange={setAnonymous}>
                 <AnonyText>익명</AnonyText>

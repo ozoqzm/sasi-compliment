@@ -81,7 +81,7 @@ const Read = () => {
   const savedcompls = localStorage.getItem("compls"); // 로컬 스토리지에서 가져오기
 
   const gotoMain = () => {
-    navigate("/Main");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -124,7 +124,7 @@ const Read = () => {
 
   // 모달창 노출
   const showModal = () => {
-    setModalOpen(true);
+    setModalOpen(true, keyId);
   };
 
   return (
