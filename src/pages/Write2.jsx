@@ -33,8 +33,8 @@ const InputBorder = styled.div`
   height: 447px;
   flex-shrink: 0;
   border-radius: 10px;
-  border: 2px solid #3b6ae3;
-  background: #eff6ff;
+  border: 2px solid #149624;
+  background: #f0ffdc;
 `;
 const InputBox = styled.textarea`
   position: relative;
@@ -58,14 +58,14 @@ const CameraBtn = styled.div`
   height: 30px;
   top: 7px;
   flex-shrink: 0;
-  background-image: url("${process.env.PUBLIC_URL}/images/camera.svg");
+  background-image: url("${process.env.PUBLIC_URL}/images/camera2.svg");
   background-size: cover;
   display: inline-block;
 `;
 const AnonyText = styled.div`
   position: relative;
   display: inline-block;
-  color: #3b6ae3;
+  color: #149624;
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
@@ -84,7 +84,7 @@ const GoButton = styled.button`
   height: 51px;
   flex-shrink: 0;
   border-radius: 10px;
-  background: #1647c3;
+  background: #149624;
   color: #fff;
   font-family: Inter;
   font-size: 14px;
@@ -112,7 +112,7 @@ const Write2 = () => {
   const navigate = useNavigate();
 
   const gotoMain = () => {
-    navigate("/Main");
+    navigate("/Main2");
   };
 
   const [anonymous, setAnonymous] = useState(false);
@@ -129,7 +129,7 @@ const Write2 = () => {
     const compls = JSON.parse(localStorage.getItem("compls") || "[]");
     compls.push(newComplObj);
     localStorage.setItem("compls", JSON.stringify(compls));
-    navigate("/Complete");
+    navigate("/Complete2");
   };
 
   return (

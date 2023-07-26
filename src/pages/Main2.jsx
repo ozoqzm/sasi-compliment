@@ -70,8 +70,8 @@ const TextBox2 = styled.div`
 `;
 const AppleList = styled.div`
   position: relative;
-  max-width: 210px;
-  height: 250px;
+  max-width: 150px;
+  height: 200px;
   margin: auto;
   top: 35px;
   overflow-y: scroll;
@@ -133,8 +133,8 @@ const MakeButton = styled.button`
 `;
 // 물방울 이미지 수정 필요 (누끼)
 const Apple = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background: url("${process.env.PUBLIC_URL}/images/apple.svg");
   background-size: cover;
   display: inline-block;

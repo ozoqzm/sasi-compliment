@@ -35,8 +35,8 @@ const InputBorder = styled.div`
   height: 447px;
   flex-shrink: 0;
   border-radius: 10px;
-  border: 2px solid #3b6ae3;
-  background: #eff6ff;
+  border: 2px solid #149624;
+  background: #f0ffdc;
 `;
 const InputBox = styled.textarea`
   position: relative;
@@ -54,7 +54,7 @@ const ProfilePic = styled.div`
   height: 35px;
   left: 3px;
   margin-top: 10px;
-  background-image: url("${process.env.PUBLIC_URL}/images/profilecircle.svg");
+  background-image: url("${process.env.PUBLIC_URL}/images/profilecircle2.svg");
   background-size: cover;
   display: inline-block;
 `;
@@ -63,7 +63,7 @@ const UserName = styled.div`
   display: inline-block;
   margin-left: 10px;
   top: -9px;
-  color: #3b6ae3;
+  color: #149624;
   font-family: Inter;
   font-size: 18px;
   font-style: normal;
@@ -81,7 +81,7 @@ const Read2 = () => {
   const savedcompls = localStorage.getItem("compls"); // 로컬 스토리지에서 가져오기
 
   const gotoMain = () => {
-    navigate("/Main");
+    navigate("/Main2");
   };
 
   useEffect(() => {
@@ -106,7 +106,7 @@ const Read2 = () => {
     );
     setCompls(updatedcompls);
     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-    navigate("/Main");
+    navigate("/Main2");
   };
 
   // 글 수정 버튼 누를 시
@@ -116,7 +116,7 @@ const Read2 = () => {
     );
     setCompls(updatedcompls);
     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-    navigate("/Main");
+    navigate("/Main2");
   };
 
   return (
@@ -141,17 +141,6 @@ const Read2 = () => {
       <button onClick={handleDeleteButton}>글 삭제</button>
       <button onClick={handleUpdateButton}>글 수정</button>
     </Container>
-    // <div>
-    //   <button onClick={handleDeleteButton}>글 삭제</button>
-    //   <button onClick={handleUpdateButton}>글 수정</button>
-    //   <form>
-    //     <input
-    //       type="text"
-    //       value={text}
-    //       onChange={(e) => setText(e.target.value)}
-    //     />
-    //   </form>
-    // </div>
   );
 };
 
