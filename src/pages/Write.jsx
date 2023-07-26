@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from "react";
-import styled from "styled-components";
-//import data from "./data.json";
+// Add.js
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const Container = styled.div`
   position: relative;
@@ -108,35 +108,52 @@ function Checkbox({ children, disabled, checked, onChange }) {
     </label>
   );
 }
-
-//func
 const Write = () => {
   const navigate = useNavigate();
 
   const gotoMain = () => {
     navigate("/Main");
   };
-  const gotoComplete = () => {
-    navigate("/Complete");
-  };
 
   const [anonymous, setAnonymous] = useState(false);
+  const [date, setDate] = useState("");
+  const [text, setText] = useState("");
+
+  const handleSaveButton = () => {
+    const newComplObj = {
+      date: date,
+      text: text,
+      id: Date.now(),
+    };
+
+    const compls = JSON.parse(localStorage.getItem("compls") || "[]");
+    compls.push(newComplObj);
+    localStorage.setItem("compls", JSON.stringify(compls));
+    navigate("/Complete");
+  };
 
   return (
     <Container>
       <ContentBox>
         <Back onClick={gotoMain}></Back>
-        <InputBorder>
-          <InputBox></InputBox>
-          <CameraBtn></CameraBtn>
-          <CheckSet>
-            <Checkbox checked={anonymous} onChange={setAnonymous}>
-              <AnonyText>익명</AnonyText>
-            </Checkbox>
-          </CheckSet>
-        </InputBorder>
-
-        <GoButton onClick={gotoComplete}>메세지 작성하기</GoButton>
+        <form>
+          <InputBorder>
+            <InputBox
+              type="text"
+              placeholder="칭찬을 입력해주세요!"
+              required
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></InputBox>
+            <CameraBtn></CameraBtn>
+            <CheckSet>
+              <Checkbox checked={anonymous} onChange={setAnonymous}>
+                <AnonyText>익명</AnonyText>
+              </Checkbox>
+            </CheckSet>
+          </InputBorder>
+        </form>
+        <GoButton onClick={handleSaveButton}>메세지 작성하기</GoButton>
       </ContentBox>
     </Container>
   );

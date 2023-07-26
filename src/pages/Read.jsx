@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from "react";
-import styled from "styled-components";
-//import data from "./data.json";
+// Update.js
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components";
 
 const Container = styled.div`
   position: relative;
@@ -69,11 +70,51 @@ const UserName = styled.div`
   line-height: 10px;
 `;
 
-//func
 const Read = () => {
+  const [compls, setCompls] = useState([]);
+  const [date, setDate] = useState(""); // 날짜 바꾸기
+  const [text, setText] = useState(""); // 내용 바꾸기
   const navigate = useNavigate();
+  const location = useLocation();
+  const keyId = location.state.keyId; // useLocation으로 값 받아옴
+  const savedcompls = localStorage.getItem("compls"); // 로컬 스토리지에서 가져오기
 
   const gotoMain = () => {
+    navigate("/Main");
+  };
+
+  useEffect(() => {
+    if (savedcompls) {
+      setCompls(JSON.parse(savedcompls)); // 투두리스트 배열 생성 compls로 설정
+    }
+  }, [savedcompls]);
+
+  useEffect(() => {
+    const complToUpdate = compls.find((compl) => compl.id === parseInt(keyId));
+    if (complToUpdate) {
+      // id 가 일치하면.. 이 값을 인 풋에 띄워줘야 함
+      setDate(complToUpdate.date);
+      setText(complToUpdate.text);
+    }
+  }, [compls, keyId]);
+
+  // 글 삭제 버튼 누를 시
+  const handleDeleteButton = () => {
+    const updatedcompls = compls.filter(
+      (compl) => compl.id !== parseInt(keyId)
+    );
+    setCompls(updatedcompls);
+    localStorage.setItem("compls", JSON.stringify(updatedcompls));
+    navigate("/Main");
+  };
+
+  // 글 수정 버튼 누를 시
+  const handleUpdateButton = () => {
+    const updatedcompls = compls.map((compl) =>
+      compl.id === parseInt(keyId) ? { ...compl, text: text } : compl
+    );
+    setCompls(updatedcompls);
+    localStorage.setItem("compls", JSON.stringify(updatedcompls));
     navigate("/Main");
   };
 
@@ -81,13 +122,35 @@ const Read = () => {
     <Container>
       <ContentBox>
         <Back onClick={gotoMain}></Back>
-        <InputBorder>
-          <ProfilePic></ProfilePic>
-          <UserName>닉네임</UserName>
-          <InputBox></InputBox>
-        </InputBorder>
+        <form>
+          <InputBorder>
+            <ProfilePic></ProfilePic>
+            <UserName>닉네임</UserName>
+            <InputBox
+              type="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></InputBox>
+          </InputBorder>
+        </form>
       </ContentBox>
+      <br />
+      <br />
+      <br />
+      <button onClick={handleDeleteButton}>글 삭제</button>
+      <button onClick={handleUpdateButton}>글 수정</button>
     </Container>
+    // <div>
+    //   <button onClick={handleDeleteButton}>글 삭제</button>
+    //   <button onClick={handleUpdateButton}>글 수정</button>
+    //   <form>
+    //     <input
+    //       type="text"
+    //       value={text}
+    //       onChange={(e) => setText(e.target.value)}
+    //     />
+    //   </form>
+    // </div>
   );
 };
 

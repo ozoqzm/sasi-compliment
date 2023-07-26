@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from "react";
-import styled from "styled-components";
-//import data from "./data.json";
+// Index.js
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import styled from "styled-components";
 
 const Container = styled.div`
   position: relative;
@@ -16,10 +17,6 @@ const ContentBox = styled.div`
   top: 4%;
   margin: auto;
 `;
-// const Back = styled.div`
-//   position: relative;
-//   margin-left: 15px;
-// `;
 const TitleBox = styled.div`
   position: relative;
   width: 70px;
@@ -76,6 +73,13 @@ const DropList = styled.div`
   height: 250px;
   margin: auto;
   top: 35px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    /* WebKit 브라우저의 스크롤바를 숨김 */
+    width: 0;
+    background: transparent;
+  }
 `;
 const Whale = styled.div`
   position: rleative;
@@ -128,25 +132,36 @@ const MakeButton = styled.button`
 `;
 // 물방울 이미지 수정 필요 (누끼)
 const Drop = styled.div`
-  width: 54.582px;
-  height: 155px;
-  flex-shrink: 0;
-  background: url("${process.env.PUBLIC_URL}/images/drop_blue.svg");
+  width: 80px;
+  height: 80px;
+  background: url("${process.env.PUBLIC_URL}/images/drop1.svg");
   background-size: cover;
+  display: inline-block;
 `;
-//func
+
 const Main = () => {
+  const [compls, setCompls] = useState([]);
+
   const navigate = useNavigate();
 
   // 페이지 이동
-  const gotoWrite = () => {
-    navigate("/Write");
-  };
   const gotoMypage = () => {
     navigate("/Mypage");
   };
-  const gotoRead = () => {
-    navigate("/Read");
+
+  useEffect(() => {
+    const savedcompls = localStorage.getItem("compls");
+    if (savedcompls) {
+      setCompls(JSON.parse(savedcompls));
+    }
+  }, []);
+
+  const handleAddButton = () => {
+    navigate("/Write"); // 쓰기 페이지로 이동
+  };
+
+  const handlecomplClick = (id) => {
+    navigate("/Read", { state: { keyId: `${id}` } });
   };
 
   return (
@@ -160,10 +175,14 @@ const Main = () => {
         <TextBox>주연진님의 고래에요.</TextBox>
         <TextBox2>칭찬으로 고래를 춤추게 만들어보세요!</TextBox2>
         <DropList>
-          <Drop onClick={gotoRead}></Drop>
+          {compls.map((compl) => (
+            <Drop key={compl.id} onClick={() => handlecomplClick(compl.id)}>
+              {/* <div>{compl.text}</div> */}
+            </Drop>
+          ))}
         </DropList>
         <Whale></Whale>
-        <GoButton onClick={gotoWrite}>칭찬하기</GoButton>
+        <GoButton onClick={handleAddButton}>칭찬하기</GoButton>
         <MakeButton>나도 만들기</MakeButton>
       </ContentBox>
     </Container>
