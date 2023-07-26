@@ -80,7 +80,7 @@ const Point_icon = styled.div`
   position: relative;
   width: 11px;
   height: 19px;
-  left: 40px;
+  left: 25px;
   top: 30px;
 
   font-family: "Inter";
@@ -96,7 +96,7 @@ const Point_number = styled.div`
   position: relative;
   width: 54px;
   height: 24px;
-  left: 80px;
+  left: 65px;
   top: 12px;
 
   font-family: "Inter";
@@ -212,12 +212,12 @@ const Text_sub = styled.div`
   position: relative;
   width: 40px;
   height: 10px;
-  left: 1px;
+  left: 4px;
   top: 3px;
 
   font-family: "Inter";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 8px;
   line-height: 10px;
   /* identical to box height */
@@ -230,22 +230,22 @@ const Gorae_examplebox = styled.button`
   width: 125px;
   height: 30px;
   left: 226px;
-  top: 333px;
+  bottom: 60px;
 
   background: #eeeeee;
-  border-radius: 3px;
+  border: none;
 `;
 
 const Gorae_exampletext = styled.div`
   position: relative;
-  width: 37px;
+  width: 50px;
   height: 12px;
-  left: calc(50% - 37px / 2 + 93.5px);
-  top: calc(50% - 12px / 2 - 74px);
+  left: 35px;
+  top: 1px;
 
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 10px;
   line-height: 12px;
 
@@ -256,19 +256,19 @@ const Gorae_stylebox = styled.button`
   position: relative;
   width: 125px;
   height: 30px;
-  left: 226px;
-  top: 371px;
+  left: 100px;
+  bottom: 20px;
 
   background: #3b6ae3;
-  border-radius: 3px;
+  border: none;
 `;
 
 const Gorae_styletext = styled.div`
   position: relative;
-  width: 37px;
+  width: 50px;
   height: 12px;
-  left: calc(50% - 37px / 2 + 93.5px);
-  top: calc(50% - 12px / 2 - 36px);
+  left: 35px;
+  top: 1px;
 
   font-family: "Inter";
   font-style: normal;
@@ -286,96 +286,39 @@ const Frame_tree = styled.div`
   width: 185px;
   height: 227px;
   left: 22px;
-  top: 70px;
+  top: 60px;
 
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(180deg, #ffffff 0%, #d1ff4d 100%);
   border: 1px solid #d5d5d5;
   border-radius: 14px;
 `;
 
 const Image_tree = styled.div`
-  position: relative;
-  width: 30px;
-  height: 30px;
-  left: calc(50% - 30px / 2 + 0.5px);
-  top: calc(50% - 30px / 2 + 9.5px);
+  box-sizing: border-box;
 
   position: relative;
-  left: 16.67%;
-  right: 16.67%;
-  top: 4.17%;
-  bottom: 8.33%;
+  width: 185px;
+  height: 227px;
+  right: 1px;
+  bottom: 232px;
 
-  background: #f8f8f8;
-
-  position: relative;
-  width: 37px;
-  height: 16px;
-  left: 88.35px;
-  top: 80.16px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 13.5737px;
-  line-height: 16px;
-
-  color: #ffffff;
-
-  position: relative;
-  width: 21.04px;
-  height: 21.04px;
-  left: 61px;
-  top: 77px;
-
-  position: relative;
-  width: 21.04px;
-  height: 21.04px;
-  left: 61px;
-  top: 77px;
-
-  background: linear-gradient(0deg, #ffc329, #ffc329),
-    linear-gradient(0deg, #ffcd29, #ffcd29),
-    linear-gradient(0deg, #ffcd29, #ffcd29), #ffcd29;
-
-  position: relative;
-  width: 16.94px;
-  height: 16.94px;
-  left: 62.91px;
-  top: 79.19px;
-
-  background: linear-gradient(0deg, #ffd966, #ffd966),
-    linear-gradient(0deg, #ffcd29, #ffcd29),
-    linear-gradient(0deg, #ffcd29, #ffcd29), #ffcd29;
-
-  position: relative;
-  width: 8px;
-  height: 13px;
-  left: 68.1px;
-  top: 81.1px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 10.9295px;
-  line-height: 13px;
-
-  color: #ffb905;
+  background: linear-gradient(180deg, #ffffff 0%, #d1ff4d 100%);
+  border: 1px solid #d5d5d5;
+  border-radius: 14px;
 `;
 
 const Text_tree = styled.div`
   position: relative;
-  width: 34px;
+  width: 50px;
   height: 22px;
   left: 226px;
-  top: 540px;
+  bottom: 110px;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
-  /* identical to box height */
 
   color: #39b74d;
 `;
@@ -385,22 +328,22 @@ const Tree_examplebox = styled.button`
   width: 125px;
   height: 30px;
   left: 226px;
-  top: 333px;
+  bottom: 90px;
 
   background: #eeeeee;
-  border-radius: 3px;
+  border: none;
 `;
 
 const Tree_exampletext = styled.div`
   position: relative;
-  width: 37px;
+  width: 50px;
   height: 12px;
-  left: calc(50% - 37px / 2 + 93.5px);
-  top: calc(50% - 12px / 2 - 74px);
+  left: 35px;
+  top: 1px;
 
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 10px;
   line-height: 12px;
 
@@ -411,19 +354,19 @@ const Tree_stylebox = styled.button`
   position: relative;
   width: 125px;
   height: 30px;
-  left: 226px;
-  top: 614px;
+  left: 100px;
+  bottom: 50px;
 
   background: #39b74d;
-  border-radius: 3px;
+  border: none;
 `;
 
 const Tree_styletext = styled.div`
   position: relative;
-  width: 37px;
+  width: 50px;
   height: 12px;
-  left: calc(50% - 37px / 2 + 93.5px);
-  top: calc(50% - 12px / 2 + 207px);
+  left: 35px;
+  top: 1px;
 
   font-family: "Inter";
   font-style: normal;
@@ -462,8 +405,9 @@ const Pointshop = () => {
         <Gorae_styletext>적용하기</Gorae_styletext>
       </Gorae_stylebox>
       <Frame_tree>
+        <img src={`${process.env.PUBLIC_URL}/image/Frame 86 (1).svg`} />
         <Image_tree>
-          <img src={`${process.env.PUBLIC_URL}/image/Group 2217.svg`} />
+          <img src={`${process.env.PUBLIC_URL}/image/Frame 87 (1).svg`} />
         </Image_tree>
       </Frame_tree>
       <Text_tree>나무</Text_tree>
