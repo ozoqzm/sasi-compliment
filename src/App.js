@@ -25,9 +25,9 @@ function App() {
       <GlobalStyle />
       <div>
         <Routes>
-          <Route path="/" element={<Start />} />
+          {/* <Route path="/" element={<Start />} /> */}
           {/* 시작페이지에서 시작 */}
-          <Route path="/Main" element={<Main />} />{" "}
+          <Route path="/" element={<Main />} />{" "}
           <Route path="/Write" element={<Write />} />{" "}
           <Route path="/Complete" element={<Complete />} />{" "}
           <Route path="/Read" element={<Read />} />{" "}
