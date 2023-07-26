@@ -55,7 +55,7 @@ const TextBox2 = styled.div`
 const CloseBtn = styled.button`
   position: rleative;
   margin: auto;
-  margin-top: 200px;
+  margin-top: 470px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,11 +75,11 @@ const CloseBtn = styled.button`
 `;
 
 //func
-const Complete = () => {
+const Complete2 = () => {
   const navigate = useNavigate();
 
   const gotoMain = () => {
-    navigate("/Main");
+    navigate("/Main2");
   };
 
   return (
@@ -96,4 +96,4 @@ const Complete = () => {
   );
 };
 
-export default Complete;
+export default Complete2;

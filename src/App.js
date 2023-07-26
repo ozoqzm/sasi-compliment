@@ -8,6 +8,8 @@ import Write from "./pages/Write";
 import Read from "./pages/Read";
 import Complete from "./pages/Complete";
 import Start from "./pages/Start";
+//테마2 페이지들 import
+import Complete2 from "./pages/Complete2";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           {/* /Mypage 경로에 Mypage 컴포넌트를 매핑 */}
           <Route path="/Profile" element={<Profile />} />{" "}
           {/* /Profile 경로에 Profile 컴포넌트를 매핑 */}
+          <Route path="/Complete2" element={<Complete2 />} />{" "}
         </Routes>
       </div>
     </BrowserRouter>
