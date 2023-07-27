@@ -20,8 +20,6 @@ import Login from "./pages/Login";
 import Point from "./pages/Point";
 import Point2 from "./pages/Point2";
 import Pointshop from "./pages/Pointshop";
-import Mypage2 from "./pages/Mypage2";
-import Profile2 from "./pages/Profile2";
 import Pointshop2 from "./pages/Pointshop2";
 
 function App() {
@@ -32,7 +30,7 @@ function App() {
         <Routes>
           {/* <Route path="/" element={<Start />} /> */}
           {/* 시작페이지에서 시작 */}
-          <Route path="/" element={<Main />} />{" "}
+          <Route path="/Main" element={<Main />} />{" "}
           <Route path="/Write" element={<Write />} />{" "}
           <Route path="/Complete" element={<Complete />} />{" "}
           <Route path="/Read" element={<Read />} />{" "}
@@ -46,12 +44,9 @@ function App() {
           <Route path="/Profile" element={<Profile />} />{" "}
           {/* /Profile 경로에 Profile 컴포넌트를 매핑 */}
           <Route path="/Complete2" element={<Complete2 />} />{" "}
-          <Route path="/Main2" element={<Main2 />} />{" "}
+          <Route path="/" element={<Main2 />} />{" "}
           <Route path="/Write2" element={<Write2 />} />{" "}
           <Route path="/Read2" element={<Read2 />} />{" "}
-          <Route path="/Mypage2" element={<Mypage2 />} />{" "}
-          <Route path="/Profile2" element={<Profile2 />} />{" "}
-          <Route path="/Pointshop2" element={<Pointshop2 />} />{" "}
         </Routes>
       </div>
     </BrowserRouter>
