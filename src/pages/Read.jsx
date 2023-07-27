@@ -106,7 +106,7 @@ const Read = () => {
     );
     setCompls(updatedcompls);
     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-    navigate("/Main");
+    navigate("/");
   };
 
   // 글 수정 버튼 누를 시
@@ -116,7 +116,7 @@ const Read = () => {
     );
     setCompls(updatedcompls);
     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-    navigate("/Main");
+    navigate("/");
   };
 
   // 모달창 노출 여부 state
@@ -146,11 +146,17 @@ const Read = () => {
       <br />
       <br />
       <br />
-      <button onClick={handleDeleteButton}>글 삭제</button>
-      <button onClick={handleUpdateButton}>글 수정</button>
+      {/* <button onClick={handleDeleteButton}>글 삭제</button>
+      <button onClick={handleUpdateButton}>글 수정</button> */}
       <div>
         <button onClick={showModal}>모달 띄우기</button>
-        {modalOpen && <ModalBasic setModalOpen={setModalOpen} />}
+        {modalOpen && (
+          <ModalBasic
+            setModalOpen={setModalOpen}
+            handleDeleteButton={handleDeleteButton}
+            handleUpdateButton={handleUpdateButton}
+          />
+        )}
       </div>
     </Container>
   );
