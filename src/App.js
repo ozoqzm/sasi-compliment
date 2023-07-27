@@ -30,11 +30,7 @@ function App() {
         <Routes>
           {/* <Route path="/" element={<Start />} /> */}
           {/* 시작페이지에서 시작 */}
-<<<<<<< HEAD
-          <Route path="/" element={<Splash />} />{" "}
-=======
           <Route path="/Main" element={<Main />} />{" "}
->>>>>>> 6748638768d115a2c6ba56a7fafb90bf1f1b854c
           <Route path="/Write" element={<Write />} />{" "}
           <Route path="/Complete" element={<Complete />} />{" "}
           <Route path="/Read" element={<Read />} />{" "}
