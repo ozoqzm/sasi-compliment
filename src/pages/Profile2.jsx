@@ -40,7 +40,7 @@ const InputBox = styled.div`
   width: 221px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #184bce;
+  border-bottom: 2px solid #70b579;
   left: 80px;
   top: 40px;
   /* 추가한 스타일 */
@@ -58,7 +58,7 @@ const InputBox = styled.div`
     color: black; /* input 텍스트 색상을 검정색으로 */
     &::placeholder {
       /* placeholder 텍스트 색상을 파란색(#698ff0)으로 */
-      color: #698ff0;
+      color: #70b579;
     }
   }
 `;
@@ -84,11 +84,11 @@ const Profile = () => {
 
   // 입력한 닉네임을 Mypage 페이지로 전달
   const onClickChangeBox = () => {
-    navigate("/Mypage", { state: { nickname, profileImage: selectedImage } });
+    navigate("/Mypage2", { state: { nickname, profileImage: selectedImage } });
   };
 
   const onClickImg = () => {
-    navigate("/Mypage");
+    navigate("/Mypage2");
   };
 
   const handleImageUpload = (e) => {
@@ -106,11 +106,11 @@ const Profile = () => {
           />
         </Back>
         <ProfileText>
-          <img src={`${process.env.PUBLIC_URL}/images/profile_text.svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/profile_text2.svg`} />
         </ProfileText>
         <ImageUpload>
           <label htmlFor="imageUploadInput">
-            <img src={`${process.env.PUBLIC_URL}/images/imgupload.svg`} />
+            <img src={`${process.env.PUBLIC_URL}/images/imgupload2.svg`} />
           </label>
           <input
             type="file"
@@ -130,12 +130,12 @@ const Profile = () => {
         </InputBox>
         <CancelBox>
           <img
-            src={`${process.env.PUBLIC_URL}/images/cancel_btn.svg`}
+            src={`${process.env.PUBLIC_URL}/images/cancel_btn2.svg`}
             onClick={onClickImg}
           />
         </CancelBox>
         <ChangeBox onClick={onClickChangeBox}>
-          <img src={`${process.env.PUBLIC_URL}/images/change_btn.svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/change_btn2.svg`} />
         </ChangeBox>
       </ContentBox>
     </Container>

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./ModalBasic.module.css";
+import styles from "./ModalBasic_p.module.css";
 import { useNavigate } from "react-router-dom";
 
 function ModalBasic({ setModalOpen, id, title, content, writer }) {
@@ -14,31 +14,31 @@ function ModalBasic({ setModalOpen, id, title, content, writer }) {
 
   // Splash로 이동
   const onClickImg = () => {
-    navigate("/Splash"); // '/Profile'로 수정
+    navigate("/Splash2"); // '/Profile'로 수정
   };
 
   return (
     <div className={styles.container}>
       <img
         className={styles.whale}
-        src={`${process.env.PUBLIC_URL}/images/sad_whale.png`}
+        src={`${process.env.PUBLIC_URL}/images/appletree.svg`}
       />
       <img
         className={styles.text1}
-        src={`${process.env.PUBLIC_URL}/images/logout_text1.svg`}
+        src={`${process.env.PUBLIC_URL}/images/green_text1.svg`}
       />
       <img
         className={styles.text2}
-        src={`${process.env.PUBLIC_URL}/images/logout_text2.svg`}
+        src={`${process.env.PUBLIC_URL}/images/green_text2.svg`}
       />
       <img
         className={styles.cancel}
-        src={`${process.env.PUBLIC_URL}/images/logout_cancel.svg`}
+        src={`${process.env.PUBLIC_URL}/images/green_cancel.svg`}
         onClick={closeModal}
       />
       <img
         className={styles.logout}
-        src={`${process.env.PUBLIC_URL}/images/logout_btn.svg`}
+        src={`${process.env.PUBLIC_URL}/images/green_btn.svg`}
         onClick={onClickImg}
       />
     </div>

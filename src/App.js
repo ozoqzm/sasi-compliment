@@ -20,6 +20,8 @@ import Login from "./pages/Login";
 import Point from "./pages/Point";
 import Point2 from "./pages/Point2";
 import Pointshop from "./pages/Pointshop";
+import Mypage2 from "./pages/Mypage2";
+import Profile2 from "./pages/Profile2";
 import Pointshop2 from "./pages/Pointshop2";
 
 function App() {
@@ -47,6 +49,9 @@ function App() {
           <Route path="/Main2" element={<Main2 />} />{" "}
           <Route path="/Write2" element={<Write2 />} />{" "}
           <Route path="/Read2" element={<Read2 />} />{" "}
+          <Route path="/Mypage2" element={<Mypage2 />} />{" "}
+          <Route path="/Profile2" element={<Profile2 />} />{" "}
+          <Route path="/Pointshop2" element={<Pointshop2 />} />{" "}
         </Routes>
       </div>
     </BrowserRouter>
