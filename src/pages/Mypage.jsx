@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import ModalBasic_p from "./ModalBasic_p";
+import { copyToClipboard } from "./copyToClipboard";
 
 const Container = styled.div`
   position: relative;
@@ -106,12 +108,61 @@ const Logoutbox = styled.div`
   margin-bottom: 10px;
 `;
 
-const Profile = () => {
+// 토스트 추가 부분
+const ToastMessage = styled.div`
+  position: absolute;
+  width: 270px;
+  height: 18px;
+  top: 630px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid #afafaf;
+  background: #fff;
+  z-index: 999;
+  display: ${(props) => (props.show ? "block" : "none")};
+
+  color: #a3a3a3;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px; /* 121.429% */
+  letter-spacing: -0.5px;
+`;
+
+const Mypage = () => {
+  // 페이지 넘어가게 해 주는 코드
   const navigate = useNavigate();
 
   const onClickImg = () => {
     navigate("/Profile"); // '/Profile'로 수정
   };
+
+  // 모달창 노출 여부 state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true);
+  };
+
+  // 토스트 메시지를 보여줄지 여부를 제어하는 상태 변수
+  const [showToast, setShowToast] = useState(false);
+
+  const onClickUrlBox = () => {
+    const url =
+      "https://www.figma.com/file/kyFRDzPJCXeYxq6pbFB0WG/%EC%A3%BC%EC%97%B0%EC%A7%84?node-id=167%3A160&mode=dev"; // 실제 복사하고자 하는 URL 주소를 입력
+    copyToClipboard(url); // 유틸리티 함수를 사용하여 URL을 클립보드에 복사
+    setShowToast(true); // 이미지를 클릭하면 토스트 메시지를 보여주도록 설정
+    setTimeout(() => setShowToast(false), 1000); // 1초 후에 토스트 메시지를 숨김
+  };
+
+  // 닉네임 입력받은 값 출력되도록 해 주기
+  const location = useLocation();
+  const nickname = location?.state?.nickname; // 넘겨받은 닉네임 값
 
   return (
     <Container>
@@ -125,7 +176,7 @@ const Profile = () => {
             alt="Profile"
           />
         </ProfileImg>
-        <Username>주연진</Username>
+        <Username>{nickname || "주연진"}</Username>
         <Useremail>yeonjin0822@gmail.com</Useremail>
         <CoinBox>
           <img src={`${process.env.PUBLIC_URL}/images/coinbox.svg`} />
@@ -141,7 +192,7 @@ const Profile = () => {
             onClick={onClickImg}
           />
         </Rewritebox>
-        <Urlbox>
+        <Urlbox onClick={onClickUrlBox}>
           <img
             src={`${process.env.PUBLIC_URL}/images/bluebox_url.svg`}
             alt="URL Box"
@@ -151,11 +202,14 @@ const Profile = () => {
           <img
             src={`${process.env.PUBLIC_URL}/images/whitebox.svg`}
             alt="Logout Box"
+            onClick={showModal}
           />
+          {modalOpen && <ModalBasic_p setModalOpen={setModalOpen} />}
         </Logoutbox>
+        <ToastMessage show={showToast}>URL 주소가 복사되었습니다</ToastMessage>
       </ContentBox>
     </Container>
   );
 };
 
-export default Profile;
+export default Mypage;
