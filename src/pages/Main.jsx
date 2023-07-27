@@ -1,6 +1,6 @@
 // Index.js
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -138,6 +138,8 @@ const Drop = styled.div`
 
 const Main = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { nickname } = location.state || { nickname: "" }; // 전달된 닉네임 값 또는 빈 문자열로 초기화
 
   const gotoMypage = () => {
     navigate("/Mypage");
@@ -182,7 +184,9 @@ const Main = () => {
           <UserImg></UserImg>
         </UserCircle>
         {/* 이름 받아오기 */}
-        <TextBox>주연진님의 고래에요.</TextBox>
+        <TextBox>
+          {nickname ? `${nickname}님의 고래에요.` : "고래에요."}
+        </TextBox>
         <TextBox2>칭찬으로 고래를 춤추게 만들어보세요!</TextBox2>
         <DropList>
           {compls.map((compl) => (
