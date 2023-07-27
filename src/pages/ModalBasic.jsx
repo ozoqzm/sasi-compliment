@@ -32,17 +32,6 @@ function ModalBasic({ setModalOpen, handleDeleteButton, handleUpdateButton }) {
     setModalOpen(false);
   };
 
-  //   const handleDeleteButton = (value) => {
-  //     //handleDeleteButton();
-  //     value = -1;
-  //     console.log(value);
-  //   };
-  //   const handleUpdateButton = (value) => {
-  //     //handleUpdateButton();
-  //     value = 1;
-  //     console.log(value);
-  //   };
-
   return (
     <Container>
       <CloseBtn onClick={closeModal}>X</CloseBtn>
