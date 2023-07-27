@@ -70,6 +70,13 @@ const UserName = styled.div`
   font-weight: 700;
   line-height: 10px;
 `;
+const MenuBtn = styled.button`
+  position: absolute;
+  border: none;
+  background: none;
+  top: 14%;
+  left: 90%;
+`;
 
 const Read = () => {
   const [compls, setCompls] = useState([]);
@@ -143,13 +150,13 @@ const Read = () => {
           </InputBorder>
         </form>
       </ContentBox>
-      <br />
-      <br />
-      <br />
       {/* <button onClick={handleDeleteButton}>글 삭제</button>
       <button onClick={handleUpdateButton}>글 수정</button> */}
       <div>
-        <button onClick={showModal}>모달 띄우기</button>
+        <MenuBtn onClick={showModal}>
+          {" "}
+          <img src={`${process.env.PUBLIC_URL}/images/menudot.svg`} />
+        </MenuBtn>
         {modalOpen && (
           <ModalBasic
             setModalOpen={setModalOpen}
