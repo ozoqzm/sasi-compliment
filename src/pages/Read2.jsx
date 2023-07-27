@@ -142,7 +142,7 @@ const Read2 = () => {
         <form>
           <InputBorder>
             <ProfilePic></ProfilePic>
-            <UserName>닉네임</UserName>
+            <UserName>{date}</UserName>
             <InputBox
               type="text"
               value={text}

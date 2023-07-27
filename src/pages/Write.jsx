@@ -1,5 +1,5 @@
 // Add.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useRef } from "react";
@@ -132,6 +132,12 @@ const Write = () => {
     localStorage.setItem("compls", JSON.stringify(compls));
     navigate("/Complete");
   };
+
+  useEffect(() => {
+    if (anonymous === true) {
+      setDate("익명");
+    } else setDate("닉네임"); // 전달받은 로그인 이름
+  }, [anonymous]);
 
   // 이미지 업로드
   const selectFile = useRef("");
