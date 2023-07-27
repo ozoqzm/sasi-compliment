@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Container = styled.div`
   position: relative;
@@ -73,12 +75,28 @@ const ChangeBox = styled.div`
   left: 195px;
 `;
 
-const mypage = () => {
+const Mypage = () => {
+  const navigate = useNavigate();
+  // 닉네임 값을 저장할 상태 변수
+  const [nickname, setNickname] = useState("");
+
+  // 입력한 닉네임을 Mypage 페이지로 전달
+  const onClickChangeBox = () => {
+    navigate("/Mypage", { state: { nickname } });
+  };
+
+  const onClickImg = () => {
+    navigate("/Mypage");
+  };
+
   return (
     <Container>
       <ContentBox>
         <Back>
-          <img src={`${process.env.PUBLIC_URL}/images/back.svg`} />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/back.svg`}
+            onClick={onClickImg}
+          />
         </Back>
         <ProfileText>
           <img src={`${process.env.PUBLIC_URL}/images/profile_text.svg`} />
@@ -87,12 +105,20 @@ const mypage = () => {
           <img src={`${process.env.PUBLIC_URL}/images/imgupload.svg`} />
         </ImageUpload>
         <InputBox>
-          <input type="text" placeholder="닉네임을 입력해주세요." />
+          <input
+            type="text"
+            placeholder="닉네임을 입력해주세요."
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+          />
         </InputBox>
         <CancelBox>
-          <img src={`${process.env.PUBLIC_URL}/images/cancel_btn.svg`} />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/cancel_btn.svg`}
+            onClick={onClickImg}
+          />
         </CancelBox>
-        <ChangeBox>
+        <ChangeBox onClick={onClickChangeBox}>
           <img src={`${process.env.PUBLIC_URL}/images/change_btn.svg`} />
         </ChangeBox>
       </ContentBox>
@@ -100,4 +126,4 @@ const mypage = () => {
   );
 };
 
-export default mypage;
+export default Mypage;

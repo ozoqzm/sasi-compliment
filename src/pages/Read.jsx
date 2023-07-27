@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import ModalBasic from "./ModalBasic";
 
 const Container = styled.div`
   position: relative;
@@ -80,7 +81,7 @@ const Read = () => {
   const savedcompls = localStorage.getItem("compls"); // 로컬 스토리지에서 가져오기
 
   const gotoMain = () => {
-    navigate("/Main");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -105,7 +106,7 @@ const Read = () => {
     );
     setCompls(updatedcompls);
     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-    navigate("/Main");
+    navigate("/");
   };
 
   // 글 수정 버튼 누를 시
@@ -115,7 +116,15 @@ const Read = () => {
     );
     setCompls(updatedcompls);
     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-    navigate("/Main");
+    navigate("/");
+  };
+
+  // 모달창 노출 여부 state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true, keyId);
   };
 
   return (
@@ -137,20 +146,19 @@ const Read = () => {
       <br />
       <br />
       <br />
-      <button onClick={handleDeleteButton}>글 삭제</button>
-      <button onClick={handleUpdateButton}>글 수정</button>
+      {/* <button onClick={handleDeleteButton}>글 삭제</button>
+      <button onClick={handleUpdateButton}>글 수정</button> */}
+      <div>
+        <button onClick={showModal}>모달 띄우기</button>
+        {modalOpen && (
+          <ModalBasic
+            setModalOpen={setModalOpen}
+            handleDeleteButton={handleDeleteButton}
+            handleUpdateButton={handleUpdateButton}
+          />
+        )}
+      </div>
     </Container>
-    // <div>
-    //   <button onClick={handleDeleteButton}>글 삭제</button>
-    //   <button onClick={handleUpdateButton}>글 수정</button>
-    //   <form>
-    //     <input
-    //       type="text"
-    //       value={text}
-    //       onChange={(e) => setText(e.target.value)}
-    //     />
-    //   </form>
-    // </div>
   );
 };
 

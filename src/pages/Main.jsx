@@ -69,8 +69,8 @@ const TextBox2 = styled.div`
 `;
 const DropList = styled.div`
   position: relative;
-  max-width: 210px;
-  height: 250px;
+  max-width: 180px;
+  height: 270px;
   margin: auto;
   top: 35px;
   overflow-y: scroll;
@@ -84,7 +84,7 @@ const DropList = styled.div`
 const Whale = styled.div`
   position: rleative;
   margin: auto;
-  margin-top: -30px;
+  margin-top: -40px;
   width: 310px;
   height: 310px;
   background: url("${process.env.PUBLIC_URL}/images/gorae.svg");
@@ -93,7 +93,7 @@ const Whale = styled.div`
 const GoButton = styled.button`
   position: rleative;
   margin: auto;
-  margin-top: -15px;
+  margin-top: -20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,22 +132,19 @@ const MakeButton = styled.button`
 `;
 // 물방울 이미지 수정 필요 (누끼)
 const Drop = styled.div`
-  width: 80px;
-  height: 80px;
-  background: url("${process.env.PUBLIC_URL}/images/drop1.svg");
-  background-size: cover;
+  position: rleative;
   display: inline-block;
 `;
 
 const Main = () => {
-  const [compls, setCompls] = useState([]);
-
   const navigate = useNavigate();
 
-  // 페이지 이동
   const gotoMypage = () => {
     navigate("/Mypage");
   };
+
+  const [compls, setCompls] = useState([]);
+  const [point, setPoint] = useState([0]);
 
   useEffect(() => {
     const savedcompls = localStorage.getItem("compls");
@@ -156,6 +153,13 @@ const Main = () => {
     }
   }, []);
 
+  // 포인트 콘솔에 출력 (배열 크기)
+  useEffect(() => {
+    const arrayLength = compls.length;
+    //console.log(arrayLength);
+    setPoint(arrayLength * 20); // 일단 글 개수당 20점씩 곱함
+  }, [compls]);
+
   const handleAddButton = () => {
     navigate("/Write"); // 쓰기 페이지로 이동
   };
@@ -163,6 +167,12 @@ const Main = () => {
   const handlecomplClick = (id) => {
     navigate("/Read", { state: { keyId: `${id}` } });
   };
+
+  // 난수 설정
+  const [num, setNum] = useState();
+  useEffect(() => {
+    setNum(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
+  }, []);
 
   return (
     <Container>
@@ -177,11 +187,19 @@ const Main = () => {
         <DropList>
           {compls.map((compl) => (
             <Drop key={compl.id} onClick={() => handlecomplClick(compl.id)}>
-              {/* <div>{compl.text}</div> */}
+              {" "}
+              <img
+                src={`${process.env.PUBLIC_URL}/images/drop${
+                  Math.floor(Math.random() * (3 - 1 + 1)) + 1
+                }.svg`}
+                alt="Back"
+                width="70px"
+              />
             </Drop>
           ))}
         </DropList>
         <Whale></Whale>
+        {/* <div>{point}</div> */}
         <GoButton onClick={handleAddButton}>칭찬하기</GoButton>
         <MakeButton>나도 만들기</MakeButton>
       </ContentBox>

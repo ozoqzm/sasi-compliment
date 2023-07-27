@@ -73,7 +73,7 @@ const AppleList = styled.div`
   max-width: 150px;
   height: 200px;
   margin: auto;
-  top: 35px;
+  top: 40px;
   overflow-y: scroll;
   overflow-x: hidden;
   &::-webkit-scrollbar {
@@ -133,10 +133,6 @@ const MakeButton = styled.button`
 `;
 // 물방울 이미지 수정 필요 (누끼)
 const Apple = styled.div`
-  width: 50px;
-  height: 50px;
-  background: url("${process.env.PUBLIC_URL}/images/apple.svg");
-  background-size: cover;
   display: inline-block;
 `;
 
@@ -165,6 +161,11 @@ const Main2 = () => {
     navigate("/Read2", { state: { keyId: `${id}` } }); // 데이터와 함께 read 페이지 이동
   };
 
+  const makeRandomWidth = () => {
+    let num = Math.floor(Math.random() * (70 - 45 + 1)) + 45;
+    return num;
+  };
+
   return (
     <Container>
       <ContentBox>
@@ -179,7 +180,12 @@ const Main2 = () => {
           <AppleList>
             {compls.map((compl) => (
               <Apple key={compl.id} onClick={() => handlecomplClick(compl.id)}>
-                {/* <div>{compl.text}</div> */}
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/apple.svg`}
+                  style={{
+                    width: makeRandomWidth(),
+                  }}
+                />
               </Apple>
             ))}
           </AppleList>
