@@ -130,7 +130,7 @@ const Okay_box = styled.button`
   position: relative;
   width: 158.3px;
   height: 42.6px;
-  left: 20px;
+  left: 100px;
   top: 20px;
   border: none;
 
@@ -158,7 +158,7 @@ const Point = () => {
   return (
     <Container>
       <Icon>
-        <img src={`${process.env.PUBLIC_URL}/image/Group 2215.svg`} />
+        <img src={`${process.env.PUBLIC_URL}/images/big_point.svg`} />
       </Icon>
       <Text_number>+10P</Text_number>
       <Text>적립되었습니다.</Text>
