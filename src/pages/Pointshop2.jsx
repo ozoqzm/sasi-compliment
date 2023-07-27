@@ -202,9 +202,9 @@ const Box_sub = styled.div`
   width: 44px;
   height: 20px;
   left: 270px;
-  bottom: 80px;
+  top: 170px;
 
-  border: 0.7px solid #3b6ae3;
+  border: 0.7px solid #149624;
   border-radius: 16px;
 `;
 
@@ -222,7 +222,7 @@ const Text_sub = styled.div`
   line-height: 10px;
   /* identical to box height */
 
-  color: #3b6ae3;
+  color: #149624;
 `;
 
 const Gorae_examplebox = styled.button`
@@ -377,21 +377,22 @@ const Tree_styletext = styled.div`
   color: #fcfcfc;
 `;
 
-const Pointshop = () => {
+const Pointshop2 = () => {
   return (
     <Container>
       <Title>포인트샵</Title>
       <Point_box>
         <Point_text>보유 포인트</Point_text>
         <Point_icon>
-          <img src={`${process.env.PUBLIC_URL}/image/Group 2217.svg`} />
+          <img src={`${process.env.PUBLIC_URL}/image/Group 2217 (2).svg`} />
         </Point_icon>
         <Point_number>200P</Point_number>
       </Point_box>
       <Detail>열심히 모은 포인트로 테마를 구매해보세요!</Detail>
       <Frame_gorae>
+        <img src={`${process.env.PUBLIC_URL}/image/Frame 85.svg`} />
         <Image_gorae>
-          <img src={`${process.env.PUBLIC_URL}/image/Group 2221.svg`} />
+          <img src={`${process.env.PUBLIC_URL}/image/Group 2221 (1).svg`} />
         </Image_gorae>
       </Frame_gorae>
       <Text_gorae>고래</Text_gorae>
@@ -421,4 +422,4 @@ const Pointshop = () => {
   );
 };
 
-export default Pointshop;
+export default Pointshop2;
