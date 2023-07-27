@@ -26,65 +26,29 @@ const CloseBtn = styled.button`
   top: 10px;
 `;
 
-function ModalBasic({ setModalOpen, title, content, writer }) {
-  //   const [compls, setCompls] = useState([]);
-  //   const [date, setDate] = useState(""); // 날짜 바꾸기
-  //   const [text, setText] = useState(""); // 내용 바꾸기
-  //   const navigate = useNavigate();
-  //   const location = useLocation();
-  //   const keyId = location.state.keyId; // useLocation으로 값 받아옴
-  //   const savedcompls = localStorage.getItem("compls"); // 로컬 스토리지에서 가져오기
-
-  //   const gotoMain = () => {
-  //     navigate("/");
-  //   };
-
-  //   useEffect(() => {
-  //     if (savedcompls) {
-  //       setCompls(JSON.parse(savedcompls)); // 투두리스트 배열 생성 compls로 설정
-  //     }
-  //   }, [savedcompls]);
-
-  //   useEffect(() => {
-  //     const complToUpdate = compls.find((compl) => compl.id === parseInt(keyId));
-  //     if (complToUpdate) {
-  //       // id 가 일치하면.. 이 값을 인 풋에 띄워줘야 함
-  //       setDate(complToUpdate.date);
-  //       setText(complToUpdate.text);
-  //     }
-  //   }, [compls, keyId]);
-
-  //   // 글 삭제 버튼 누를 시
-  //   const handleDeleteButton = () => {
-  //     const updatedcompls = compls.filter(
-  //       (compl) => compl.id !== parseInt(keyId)
-  //     );
-  //     setCompls(updatedcompls);
-  //     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-  //     navigate("/Main");
-  //   };
-
-  //   // 글 수정 버튼 누를 시
-  //   const handleUpdateButton = () => {
-  //     const updatedcompls = compls.map((compl) =>
-  //       compl.id === parseInt(keyId) ? { ...compl, text: text } : compl
-  //     );
-  //     setCompls(updatedcompls);
-  //     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-  //     navigate("/Main");
-  //   };
-
+function ModalBasic({ setModalOpen, handleDeleteButton, handleUpdateButton }) {
   // 모달 끄기
   const closeModal = () => {
     setModalOpen(false);
   };
 
+  //   const handleDeleteButton = (value) => {
+  //     //handleDeleteButton();
+  //     value = -1;
+  //     console.log(value);
+  //   };
+  //   const handleUpdateButton = (value) => {
+  //     //handleUpdateButton();
+  //     value = 1;
+  //     console.log(value);
+  //   };
+
   return (
     <Container>
       <CloseBtn onClick={closeModal}>X</CloseBtn>
       <p>모달창입니다.</p>
-      {/* <button onClick={handleDeleteButton}>글 삭제</button>
-      <button onClick={handleUpdateButton}>글 수정</button> */}
+      <button onClick={() => handleDeleteButton(-1)}>글 삭제</button>
+      <button onClick={() => handleUpdateButton(1)}>글 수정</button>
     </Container>
   );
 }
