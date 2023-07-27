@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate, useLocation } from "react-router-dom";
-import ModalBasic_p from "./ModalBasic_p";
+import ModalBasic_p2 from "./ModalBasic_p2";
 import { copyToClipboard } from "./copyToClipboard";
 
 const Container = styled.div`
@@ -42,7 +42,7 @@ const Username = styled.div`
   line-height: 27px;
   /* identical to box height */
 
-  color: #3b6ae3;
+  color: #149624;
 `;
 
 const Useremail = styled.div`
@@ -69,6 +69,13 @@ const CoinBox = styled.div`
   margin-left: 15px;
 `;
 
+const Coin = styled.div`
+  position: relative;
+  margin-top: -30px;
+  top: -55px;
+  margin-left: 40px;
+`;
+
 const CoinText = styled.div`
   position: relative;
   width: 54px;
@@ -78,15 +85,15 @@ const CoinText = styled.div`
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  color: #3b6ae3;
-  top: -81px;
-  left: 80px;
+  color: #149624;
+  top: -88px;
+  left: 82px;
 `;
 
 const CoinUse = styled.div`
   position: relative;
-  top: -67px;
-  left: 40px;
+  top: -77px;
+  left: 42px;
 `;
 
 const Rewritebox = styled.div`
@@ -139,17 +146,17 @@ const Mypage = () => {
 
   // Profile로 이동
   const onClickImg = () => {
-    navigate("/Profile"); // '/Profile'로 수정
+    navigate("/Profile2"); // '/Profile'로 수정
   };
 
   //Pointshop으로 이동
   const onClickImg2 = () => {
-    navigate("/Pointshop"); // '/Profile'로 수정
+    navigate("/Pointshop2"); // '/Profile'로 수정
   };
 
   // Main 이동
   const onClickImg3 = () => {
-    navigate("/"); // '/Profile'로 수정
+    navigate("/Main2"); // '/Profile'로 수정
   };
 
   // 모달창 노출 여부 state
@@ -176,7 +183,7 @@ const Mypage = () => {
   const nickname = location?.state?.nickname; // 넘겨받은 닉네임 값
 
   const profileImage = location?.state?.profileImage; // 전달된 이미지 URL 가져오기
-  const defaultProfileImageUrl = `${process.env.PUBLIC_URL}/images/profile.svg`; // default로 저장되는 이미지 설정
+  const defaultProfileImageUrl = `${process.env.PUBLIC_URL}/images/profile2.svg`; // default로 저장되는 이미지 설정
 
   // 이미지 URL 상태 변수
   const [profileImageUrl, setProfileImageUrl] = useState(
@@ -226,35 +233,38 @@ const Mypage = () => {
         <Username>{nickname || "주연진"}</Username>
         <Useremail>yeonjin0822@gmail.com</Useremail>
         <CoinBox>
-          <img src={`${process.env.PUBLIC_URL}/images/coinbox.svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/coinbox2.svg`} />
         </CoinBox>
+        <Coin>
+          <img src={`${process.env.PUBLIC_URL}/images/coin.svg`} />
+        </Coin>
         <CoinText>{point}P</CoinText>
         <CoinUse>
           <img
-            src={`${process.env.PUBLIC_URL}/images/point_use.svg`}
+            src={`${process.env.PUBLIC_URL}/images/point_use2.svg`}
             onClick={onClickImg2}
           />
         </CoinUse>
         <Rewritebox>
           <img
-            src={`${process.env.PUBLIC_URL}/images/bluebox_rewrite.svg`}
+            src={`${process.env.PUBLIC_URL}/images/bluebox_rewrite2.svg`}
             alt="Rewrite Box"
             onClick={onClickImg}
           />
         </Rewritebox>
         <Urlbox onClick={onClickUrlBox}>
           <img
-            src={`${process.env.PUBLIC_URL}/images/bluebox_url.svg`}
+            src={`${process.env.PUBLIC_URL}/images/green_urlbox.svg`}
             alt="URL Box"
           />
         </Urlbox>
         <Logoutbox>
           <img
-            src={`${process.env.PUBLIC_URL}/images/whitebox.svg`}
+            src={`${process.env.PUBLIC_URL}/images/green_logoutbox.svg`}
             alt="Logout Box"
             onClick={showModal}
           />
-          {modalOpen && <ModalBasic_p setModalOpen={setModalOpen} />}
+          {modalOpen && <ModalBasic_p2 setModalOpen={setModalOpen} />}
         </Logoutbox>
         <ToastMessage show={showToast}>URL 주소가 복사되었습니다</ToastMessage>
       </ContentBox>

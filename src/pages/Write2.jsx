@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 //import data from "./data.json";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 const Container = styled.div`
   position: relative;
@@ -40,7 +41,7 @@ const InputBox = styled.textarea`
   position: relative;
   margin: auto;
   width: 337px;
-  height: 390px;
+  height: 200px;
   border: none;
   background: none;
   outline: none;
@@ -131,6 +132,20 @@ const Write2 = () => {
     localStorage.setItem("compls", JSON.stringify(compls));
     navigate("/Complete2");
   };
+  // 이미지 업로드
+  const selectFile = useRef("");
+  const [imageFile, setImageFile] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageFile(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <Container>
@@ -145,7 +160,23 @@ const Write2 = () => {
               value={text}
               onChange={(e) => setText(e.target.value)}
             ></InputBox>
-            <CameraBtn></CameraBtn>
+            <div style={{ height: "190px", margin: "auto" }}>
+              {imageFile && (
+                <img
+                  src={imageFile}
+                  alt="Uploaded Preview"
+                  style={{ width: "340px", height: "200px" }}
+                />
+              )}
+            </div>
+            <CameraBtn onClick={() => selectFile.current.click()}>
+              <input
+                type="file"
+                onChange={handleImageChange}
+                style={{ display: "none" }}
+                ref={selectFile}
+              />
+            </CameraBtn>
             <CheckSet>
               <Checkbox checked={anonymous} onChange={setAnonymous}>
                 <AnonyText>익명</AnonyText>

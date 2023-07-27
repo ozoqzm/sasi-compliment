@@ -23,30 +23,30 @@
 
 .whale {
   position: relative;
-  left: 24%;
+  left: 35%;
   top: 10%;
 }
 
 .text1 {
   position: relative;
-  top: 14%;
-  left: -21%;
+  top: 18%;
+  left: 0%;
 }
 
 .text2 {
   position: relative;
-  top: 3%;
-  left: 37%;
+  top: 24%;
+  left: -28%;
 }
 
 .cancel {
   position: relative;
-  top: 45%;
-  left: -58px;
+  top: 47%;
+  left: 20px;
 }
 
 .logout {
   position: relative;
-  top: 28%;
-  left: 52%;
+  top: 47%;
+  left: 8%;
 }
