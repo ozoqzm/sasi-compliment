@@ -62,7 +62,7 @@ const Text_number = styled.div`
   line-height: 28px;
   /* identical to box height */
 
-  color: #3b6ae3;
+  color: #149624;
 `;
 
 const Text = styled.div`
@@ -123,18 +123,18 @@ const Point_number = styled.div`
   line-height: 17px;
   /* identical to box height */
 
-  color: #3b6ae3;
+  color: #149624;
 `;
 
 const Okay_box = styled.button`
   position: relative;
   width: 158.3px;
   height: 42.6px;
-  left: 20px;
+  left: 100px;
   top: 20px;
   border: none;
 
-  background: #467aff;
+  background: #149624;
   border-radius: 6px;
 `;
 
@@ -151,10 +151,10 @@ const Okay_text = styled.div`
   font-size: 14px;
   line-height: 17px;
 
-  color: #000000;
+  color: #ffffff;
 `;
 
-const Point = () => {
+const Point2 = () => {
   return (
     <Container>
       <Icon>
@@ -173,4 +173,4 @@ const Point = () => {
   );
 };
 
-export default Point;
+export default Point2;
