@@ -34,6 +34,7 @@ function App() {
           <Route path="/Write" element={<Write />} />{" "}
           <Route path="/Complete" element={<Complete />} />{" "}
           <Route path="/Read" element={<Read />} />{" "}
+          <Route path="/Main" element={<Main />} />{" "}
           <Route path="/Splash" element={<Splash />} />{" "}
           <Route path="/Signup" element={<Signup />} />{" "}
           <Route path="/Point" element={<Point />} />{" "}
