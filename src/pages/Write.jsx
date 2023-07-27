@@ -166,7 +166,7 @@ const Write = () => {
                 <img
                   src={imageFile}
                   alt="Uploaded Preview"
-                  style={{ width: "340px" }}
+                  style={{ width: "340px", height: "200px" }}
                 />
               )}
             </div>

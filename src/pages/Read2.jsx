@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import ModalBasic from "./ModalBasic";
 
 const Container = styled.div`
   position: relative;
@@ -70,6 +71,13 @@ const UserName = styled.div`
   font-weight: 700;
   line-height: 10px;
 `;
+const MenuBtn = styled.button`
+  position: absolute;
+  border: none;
+  background: none;
+  top: 14%;
+  left: 90%;
+`;
 
 const Read2 = () => {
   const [compls, setCompls] = useState([]);
@@ -119,6 +127,14 @@ const Read2 = () => {
     navigate("/Main2");
   };
 
+  // 모달창 노출 여부 state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true, keyId);
+  };
+
   return (
     <Container>
       <ContentBox>
@@ -135,11 +151,19 @@ const Read2 = () => {
           </InputBorder>
         </form>
       </ContentBox>
-      <br />
-      <br />
-      <br />
-      <button onClick={handleDeleteButton}>글 삭제</button>
-      <button onClick={handleUpdateButton}>글 수정</button>
+      <div>
+        <MenuBtn onClick={showModal}>
+          {" "}
+          <img src={`${process.env.PUBLIC_URL}/images/menudot.svg`} />
+        </MenuBtn>
+        {modalOpen && (
+          <ModalBasic
+            setModalOpen={setModalOpen}
+            handleDeleteButton={handleDeleteButton}
+            handleUpdateButton={handleUpdateButton}
+          />
+        )}
+      </div>
     </Container>
   );
 };
