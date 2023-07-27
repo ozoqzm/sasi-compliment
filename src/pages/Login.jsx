@@ -48,7 +48,7 @@ const Email_box = styled.input`
   position: relative;
   width: 356px;
   height: 48px;
-  left: 1px;
+  left: 6px;
   top: 100px;
 
   border: 1.5px solid #4176ff;
@@ -76,7 +76,7 @@ const Password_box = styled.input`
   position: relative;
   width: 356px;
   height: 48px;
-  left: 1px;
+  left: 6px;
   top: 140px;
 
   border: 1.5px solid #4176ff;
@@ -87,7 +87,7 @@ const Start_box = styled.button`
   position: relative;
   width: 345px;
   height: 51px;
-  left: 1px;
+  left: 15px;
   top: 470px;
   border: none;
 

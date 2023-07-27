@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { GlobalStyle } from "./style";
 import Mypage from "./pages/Mypage";
@@ -17,7 +18,9 @@ import Splash from "./pages/Splash";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Point from "./pages/Point";
+import Point2 from "./pages/Point2";
 import Pointshop from "./pages/Pointshop";
+import Pointshop2 from "./pages/Pointshop2";
 
 function App() {
   return (
@@ -33,6 +36,7 @@ function App() {
           <Route path="/Read" element={<Read />} />{" "}
           <Route path="/Splash" element={<Splash />} />{" "}
           <Route path="/Signup" element={<Signup />} />{" "}
+          <Route path="/Point" element={<Point />} />{" "}
           <Route path="/Pointshop" element={<Pointshop />} />{" "}
           <Route path="/Login" element={<Login />} />{" "}
           <Route path="/Mypage" element={<Mypage />} />{" "}
