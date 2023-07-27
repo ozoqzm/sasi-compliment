@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 //import data from "./data.json";
 import { useNavigate } from "react-router-dom";
@@ -132,6 +132,13 @@ const Write2 = () => {
     localStorage.setItem("compls", JSON.stringify(compls));
     navigate("/Complete2");
   };
+
+  useEffect(() => {
+    if (anonymous === true) {
+      setDate("익명");
+    } else setDate("닉네임"); // 전달받은 로그인 이름
+  }, [anonymous]);
+
   // 이미지 업로드
   const selectFile = useRef("");
   const [imageFile, setImageFile] = useState(null);

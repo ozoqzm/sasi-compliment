@@ -146,6 +146,10 @@ const Main2 = () => {
     navigate("/Mypage");
   };
 
+  const gotoSplash = () => {
+    navigate("/Splash");
+  };
+
   useEffect(() => {
     const savedcompls = localStorage.getItem("compls");
     if (savedcompls) {
@@ -191,7 +195,7 @@ const Main2 = () => {
           </AppleList>
         </Tree>
         <GoButton onClick={handleAddButton}>칭찬하기</GoButton>
-        <MakeButton>나도 만들기</MakeButton>
+        <MakeButton onClick={gotoSplash}>나도 만들기</MakeButton>
       </ContentBox>
     </Container>
   );

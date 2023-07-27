@@ -28,7 +28,7 @@ function App() {
       <GlobalStyle />
       <div>
         <Routes>
-          {/* <Route path="/" element={<Start />} /> */}
+          <Route path="/" element={<Start />} />
           {/* 시작페이지에서 시작 */}
           <Route path="/Main" element={<Main />} />{" "}
           <Route path="/Write" element={<Write />} />{" "}
@@ -44,7 +44,7 @@ function App() {
           <Route path="/Profile" element={<Profile />} />{" "}
           {/* /Profile 경로에 Profile 컴포넌트를 매핑 */}
           <Route path="/Complete2" element={<Complete2 />} />{" "}
-          <Route path="/" element={<Main2 />} />{" "}
+          <Route path="/Main2" element={<Main2 />} />{" "}
           <Route path="/Write2" element={<Write2 />} />{" "}
           <Route path="/Read2" element={<Read2 />} />{" "}
         </Routes>

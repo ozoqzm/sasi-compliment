@@ -143,6 +143,10 @@ const Main = () => {
     navigate("/Mypage");
   };
 
+  const gotoSplash = () => {
+    navigate("/Splash");
+  };
+
   const [compls, setCompls] = useState([]);
   const [point, setPoint] = useState([0]);
 
@@ -201,7 +205,7 @@ const Main = () => {
         <Whale></Whale>
         {/* <div>{point}</div> */}
         <GoButton onClick={handleAddButton}>칭찬하기</GoButton>
-        <MakeButton>나도 만들기</MakeButton>
+        <MakeButton onClick={gotoSplash}>나도 만들기</MakeButton>
       </ContentBox>
     </Container>
   );
