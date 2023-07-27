@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -142,6 +143,12 @@ const Start_text = styled.div`
 `;
 
 const Signup = () => {
+  const navigate = useNavigate(); // useNavigate 훅을 초기화합니다
+
+  const handleStartBoxClick = () => {
+    navigate("/login"); // Start_box 버튼이 클릭되면 Login 페이지로 이동합니다
+  };
+
   return (
     <Container>
       <Title>회원가입</Title>
@@ -157,7 +164,7 @@ const Signup = () => {
         <Password>비밀번호</Password>
         <Password_box></Password_box>
       </p3>
-      <Start_box>
+      <Start_box onClick={handleStartBoxClick}>
         <Start_text>시작하기</Start_text>
       </Start_box>
     </Container>

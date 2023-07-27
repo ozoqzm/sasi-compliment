@@ -142,40 +142,8 @@ const Image_gorae = styled.div`
   position: relative;
   width: 140px;
   height: 197.98px;
-  left: 44px;
-  top: 120px;
-
-  position: relative;
-  width: 140px;
-  height: 140px;
-  left: 184px;
-  top: 120px;
-
-  background: url(image.png);
-
-  position: relative;
-  width: 25.83px;
-  height: 73.36px;
-  left: 117.11px;
-  top: 388.14px;
-
-  background: url(image.png);
-
-  position: relative;
-  width: 25.45px;
-  height: 73.54px;
-  left: 111.88px;
-  top: 370.8px;
-
-  background: url(image.png);
-
-  position: relative;
-  width: 25.83px;
-  height: 73.36px;
-  left: 30px;
-  top: 10px;
-
-  background: url(image.png);
+  left: 1px;
+  top: 35px;
 `;
 
 const Text_gorae = styled.div`
@@ -300,9 +268,8 @@ const Image_tree = styled.div`
   width: 185px;
   height: 227px;
   right: 1px;
-  bottom: 232px;
+  bottom: 2px;
 
-  background: linear-gradient(180deg, #ffffff 0%, #d1ff4d 100%);
   border: 1px solid #d5d5d5;
   border-radius: 14px;
 `;
@@ -384,15 +351,15 @@ const Pointshop2 = () => {
       <Point_box>
         <Point_text>보유 포인트</Point_text>
         <Point_icon>
-          <img src={`${process.env.PUBLIC_URL}/image/Group 2217 (2).svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/Group 2217 (2).svg`} />
         </Point_icon>
         <Point_number>200P</Point_number>
       </Point_box>
       <Detail>열심히 모은 포인트로 테마를 구매해보세요!</Detail>
       <Frame_gorae>
-        <img src={`${process.env.PUBLIC_URL}/image/Frame 85.svg`} />
+        <img src={`${process.env.PUBLIC_URL}/images/image_gorae.svg`} />
         <Image_gorae>
-          <img src={`${process.env.PUBLIC_URL}/image/Group 2221 (1).svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/gorae_frame.svg`} />
         </Image_gorae>
       </Frame_gorae>
       <Text_gorae>고래</Text_gorae>
@@ -406,9 +373,8 @@ const Pointshop2 = () => {
         <Gorae_styletext>적용하기</Gorae_styletext>
       </Gorae_stylebox>
       <Frame_tree>
-        <img src={`${process.env.PUBLIC_URL}/image/Frame 86 (1).svg`} />
         <Image_tree>
-          <img src={`${process.env.PUBLIC_URL}/image/Frame 87 (1).svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/image_tree.svg`} />
         </Image_tree>
       </Frame_tree>
       <Text_tree>나무</Text_tree>

@@ -142,40 +142,13 @@ const Image_gorae = styled.div`
   position: relative;
   width: 140px;
   height: 197.98px;
-  left: 44px;
-  top: 120px;
+  left: 45px;
+  top: 38px;
 
   position: relative;
   width: 140px;
   height: 140px;
-  left: 184px;
-  top: 120px;
-
-  background: url(image.png);
-
-  position: relative;
-  width: 25.83px;
-  height: 73.36px;
-  left: 117.11px;
-  top: 388.14px;
-
-  background: url(image.png);
-
-  position: relative;
-  width: 25.45px;
-  height: 73.54px;
-  left: 111.88px;
-  top: 370.8px;
-
-  background: url(image.png);
-
-  position: relative;
-  width: 25.83px;
-  height: 73.36px;
-  left: 30px;
-  top: 10px;
-
-  background: url(image.png);
+  left: 1px;
 `;
 
 const Text_gorae = styled.div`
@@ -384,14 +357,15 @@ const Pointshop = () => {
       <Point_box>
         <Point_text>보유 포인트</Point_text>
         <Point_icon>
-          <img src={`${process.env.PUBLIC_URL}/image/Group 2217.svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/point.svg`} />
         </Point_icon>
         <Point_number>200P</Point_number>
       </Point_box>
       <Detail>열심히 모은 포인트로 테마를 구매해보세요!</Detail>
       <Frame_gorae>
+        <img src={`${process.env.PUBLIC_URL}/images/image_gorae.svg`} />
         <Image_gorae>
-          <img src={`${process.env.PUBLIC_URL}/image/Group 2221.svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/gorae_frame.svg`} />
         </Image_gorae>
       </Frame_gorae>
       <Text_gorae>고래</Text_gorae>
@@ -405,9 +379,9 @@ const Pointshop = () => {
         <Gorae_styletext>적용하기</Gorae_styletext>
       </Gorae_stylebox>
       <Frame_tree>
-        <img src={`${process.env.PUBLIC_URL}/image/Frame 86 (1).svg`} />
+        <img src={`${process.env.PUBLIC_URL}/images/image_tree.svg`} />
         <Image_tree>
-          <img src={`${process.env.PUBLIC_URL}/image/Frame 87 (1).svg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/secret_tree.svg`} />
         </Image_tree>
       </Frame_tree>
       <Text_tree>나무</Text_tree>

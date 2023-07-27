@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -114,6 +115,13 @@ const Start_text = styled.div`
 `;
 
 const Login = () => {
+  const navigate = useNavigate(); // useNavigate 훅을 초기화
+
+  // 메인 페이지로 이동하는 함수
+  const handleMainButtonClick = () => {
+    navigate("/Main"); // 메인 페이지로 이동
+  };
+
   return (
     <Container>
       <Title>로그인</Title>
@@ -126,7 +134,7 @@ const Login = () => {
         <Password_box></Password_box>
       </p2>
 
-      <Start_box>
+      <Start_box onClick={handleMainButtonClick}>
         <Start_text>로그인하기</Start_text>
       </Start_box>
     </Container>
