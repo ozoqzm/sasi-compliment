@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import Point from "./Point"; // Point 모달창 컴포넌트 import
 
 const Container = styled.div`
   position: relative;
@@ -14,7 +15,7 @@ const Container = styled.div`
 `;
 const ContentBox = styled.div`
   position: relative;
-  top: 4%;
+  top: 4%;칭
   margin: auto;
 `;
 const TitleBox = styled.div`
@@ -145,15 +146,15 @@ const Main = () => {
     navigate("/Mypage");
   };
 
+  const [showPointModal, setShowPointModal] = useState(false); // 모달창 노출 여부 상태
+
   const [compls, setCompls] = useState([]);
-  const [point, setPoint] = useState([0]);
+  const [point, setPoint] = useState(0); // setPoint 상태 변수를 정의하고 초기화합니다.
 
   useEffect(() => {
-    const savedcompls = localStorage.getItem("compls");
-    if (savedcompls) {
-      setCompls(JSON.parse(savedcompls));
-    }
-  }, []);
+    const arrayLength = compls.length;
+    setPoint(arrayLength * 20);
+  }, [compls]);
 
   // 포인트 콘솔에 출력 (배열 크기)
   useEffect(() => {
@@ -163,7 +164,7 @@ const Main = () => {
   }, [compls]);
 
   const handleAddButton = () => {
-    navigate("/Write"); // 쓰기 페이지로 이동
+    navigate("/Write"); // Write 페이지로 이동
   };
 
   const handlecomplClick = (id) => {
@@ -205,8 +206,13 @@ const Main = () => {
         <Whale></Whale>
         {/* <div>{point}</div> */}
         <GoButton onClick={handleAddButton}>칭찬하기</GoButton>
+        {showPointModal && (
+          <Point onClose={() => setShowPointModal(false)} />
+        )}{" "}
+        {/* Point 모달창 노출 여부에 따라 보여줌 */}
         <MakeButton>나도 만들기</MakeButton>
       </ContentBox>
+      {showPointModal && <Point />}
     </Container>
   );
 };
