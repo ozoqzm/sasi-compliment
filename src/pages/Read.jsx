@@ -80,7 +80,7 @@ const MenuBtn = styled.button`
 
 const Read = () => {
   const [compls, setCompls] = useState([]);
-  const [date, setDate] = useState(""); // 날짜 바꾸기
+  const [date, setDate] = useState(""); // 날짜 바꾸기 (닉네임)
   const [text, setText] = useState(""); // 내용 바꾸기
   const navigate = useNavigate();
   const location = useLocation();
@@ -88,12 +88,12 @@ const Read = () => {
   const savedcompls = localStorage.getItem("compls"); // 로컬 스토리지에서 가져오기
 
   const gotoMain = () => {
-    navigate("/");
+    navigate("/Main");
   };
 
   useEffect(() => {
     if (savedcompls) {
-      setCompls(JSON.parse(savedcompls)); // 투두리스트 배열 생성 compls로 설정
+      setCompls(JSON.parse(savedcompls)); // 칭찬들 배열 생성
     }
   }, [savedcompls]);
 
@@ -113,7 +113,7 @@ const Read = () => {
     );
     setCompls(updatedcompls);
     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-    navigate("/");
+    navigate("/Main");
   };
 
   // 글 수정 버튼 누를 시
@@ -123,7 +123,7 @@ const Read = () => {
     );
     setCompls(updatedcompls);
     localStorage.setItem("compls", JSON.stringify(updatedcompls));
-    navigate("/");
+    navigate("/Main");
   };
 
   // 모달창 노출 여부 state
@@ -141,7 +141,7 @@ const Read = () => {
         <form>
           <InputBorder>
             <ProfilePic></ProfilePic>
-            <UserName>닉네임</UserName>
+            <UserName>{date}</UserName>
             <InputBox
               type="text"
               value={text}
@@ -150,8 +150,6 @@ const Read = () => {
           </InputBorder>
         </form>
       </ContentBox>
-      {/* <button onClick={handleDeleteButton}>글 삭제</button>
-      <button onClick={handleUpdateButton}>글 수정</button> */}
       <div>
         <MenuBtn onClick={showModal}>
           {" "}

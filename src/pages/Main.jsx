@@ -146,7 +146,13 @@ const Main = () => {
     navigate("/Mypage");
   };
 
+<<<<<<< HEAD
   const [showPointModal, setShowPointModal] = useState(false); // 모달창 노출 여부 상태
+=======
+  const gotoSplash = () => {
+    navigate("/Splash");
+  };
+>>>>>>> 597213ba03eee18fa7ea8972d594d0f1faa8d949
 
   const [compls, setCompls] = useState([]);
   const [point, setPoint] = useState(0); // setPoint 상태 변수를 정의하고 초기화합니다.
@@ -206,11 +212,15 @@ const Main = () => {
         <Whale></Whale>
         {/* <div>{point}</div> */}
         <GoButton onClick={handleAddButton}>칭찬하기</GoButton>
+<<<<<<< HEAD
         {showPointModal && (
           <Point onClose={() => setShowPointModal(false)} />
         )}{" "}
         {/* Point 모달창 노출 여부에 따라 보여줌 */}
         <MakeButton>나도 만들기</MakeButton>
+=======
+        <MakeButton onClick={gotoSplash}>나도 만들기</MakeButton>
+>>>>>>> 597213ba03eee18fa7ea8972d594d0f1faa8d949
       </ContentBox>
       {showPointModal && <Point />}
     </Container>
