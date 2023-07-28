@@ -1,9 +1,9 @@
 // Index.js
 import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import Point from "./Point"; // Point 모달창 컴포넌트 import
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
   position: relative;
@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 const ContentBox = styled.div`
   position: relative;
-  top: 4%;칭
+  top: 4%;
   margin: auto;
 `;
 const TitleBox = styled.div`
@@ -140,27 +140,25 @@ const Drop = styled.div`
 const Main = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { nickname } = location.state || { nickname: "" }; // 전달된 닉네임 값 또는 빈 문자열로 초기화
+  const { nickname } = location.state || { nickname: "" };
 
   const gotoMypage = () => {
     navigate("/Mypage");
   };
 
-<<<<<<< HEAD
-  const [showPointModal, setShowPointModal] = useState(false); // 모달창 노출 여부 상태
-=======
   const gotoSplash = () => {
     navigate("/Splash");
   };
->>>>>>> 597213ba03eee18fa7ea8972d594d0f1faa8d949
 
   const [compls, setCompls] = useState([]);
-  const [point, setPoint] = useState(0); // setPoint 상태 변수를 정의하고 초기화합니다.
+  const [point, setPoint] = useState([0]);
 
   useEffect(() => {
-    const arrayLength = compls.length;
-    setPoint(arrayLength * 20);
-  }, [compls]);
+    const savedcompls = localStorage.getItem("compls");
+    if (savedcompls) {
+      setCompls(JSON.parse(savedcompls));
+    }
+  }, []);
 
   // 포인트 콘솔에 출력 (배열 크기)
   useEffect(() => {
@@ -170,7 +168,7 @@ const Main = () => {
   }, [compls]);
 
   const handleAddButton = () => {
-    navigate("/Write"); // Write 페이지로 이동
+    navigate("/Write"); // 쓰기 페이지로 이동
   };
 
   const handlecomplClick = (id) => {
@@ -192,7 +190,7 @@ const Main = () => {
         </UserCircle>
         {/* 이름 받아오기 */}
         <TextBox>
-          {nickname ? `${nickname}님의 고래에요.` : "고래에요."}
+          {nickname ? `${nickname}님의 고래예요.` : "고래예요."}
         </TextBox>
         <TextBox2>칭찬으로 고래를 춤추게 만들어보세요!</TextBox2>
         <DropList>
@@ -212,17 +210,8 @@ const Main = () => {
         <Whale></Whale>
         {/* <div>{point}</div> */}
         <GoButton onClick={handleAddButton}>칭찬하기</GoButton>
-<<<<<<< HEAD
-        {showPointModal && (
-          <Point onClose={() => setShowPointModal(false)} />
-        )}{" "}
-        {/* Point 모달창 노출 여부에 따라 보여줌 */}
-        <MakeButton>나도 만들기</MakeButton>
-=======
         <MakeButton onClick={gotoSplash}>나도 만들기</MakeButton>
->>>>>>> 597213ba03eee18fa7ea8972d594d0f1faa8d949
       </ContentBox>
-      {showPointModal && <Point />}
     </Container>
   );
 };
