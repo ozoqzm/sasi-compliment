@@ -48,6 +48,7 @@ function App() {
           <Route path="/Main2" element={<Main2 />} />{" "}
           <Route path="/Write2" element={<Write2 />} />{" "}
           <Route path="/Read2" element={<Read2 />} />{" "}
+          <Route path="/Pointshop2" element={<Pointshop2 />} />{" "}
         </Routes>
       </div>
     </BrowserRouter>
