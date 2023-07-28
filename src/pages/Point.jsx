@@ -154,7 +154,7 @@ const Okay_text = styled.div`
   color: #000000;
 `;
 
-const Point = () => {
+const Point = ({ onClose }) => {
   return (
     <Container>
       <Icon>
@@ -166,7 +166,7 @@ const Point = () => {
         <Point_text>내 포인트</Point_text>
         <Point_number>50P</Point_number>
       </Point_box>
-      <Okay_box>
+      <Okay_box onClick={onClose}>
         <Okay_text>확인</Okay_text>
       </Okay_box>
     </Container>
