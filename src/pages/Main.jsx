@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
   position: relative;
@@ -137,8 +138,9 @@ const Drop = styled.div`
 `;
 
 const Main = () => {
-  const name = location.state; // 이름 받아오기
   const navigate = useNavigate();
+  const location = useLocation();
+  const { nickname } = location.state || { nickname: "" };
 
   const gotoMypage = () => {
     navigate("/Mypage");
@@ -187,7 +189,9 @@ const Main = () => {
           <UserImg></UserImg>
         </UserCircle>
         {/* 이름 받아오기 */}
-        <TextBox>주연진님의 고래에요.</TextBox>
+        <TextBox>
+          {nickname ? `${nickname}님의 고래예요.` : "고래예요."}
+        </TextBox>
         <TextBox2>칭찬으로 고래를 춤추게 만들어보세요!</TextBox2>
         <DropList>
           {compls.map((compl) => (
