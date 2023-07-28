@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   position: relative;
@@ -351,6 +352,12 @@ const Tree_styletext = styled.div`
 `;
 
 const Pointshop = () => {
+  const navigate = useNavigate();
+  // Main 이동
+  const gotoMain2 = () => {
+    navigate("/Main2"); // '/Profile'로 수정
+  };
+
   return (
     <Container>
       <Title>포인트샵</Title>
@@ -389,7 +396,7 @@ const Pointshop = () => {
         <Tree_exampletext>미리보기</Tree_exampletext>
       </Tree_examplebox>
       <Tree_stylebox>
-        <Tree_styletext>적용하기</Tree_styletext>
+        <Tree_styletext onClick={gotoMain2}>적용하기</Tree_styletext>
       </Tree_stylebox>
     </Container>
   );
