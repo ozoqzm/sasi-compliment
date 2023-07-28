@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -115,11 +115,18 @@ const Start_text = styled.div`
 `;
 
 const Login = () => {
-  const navigate = useNavigate(); // useNavigate 훅을 초기화
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // 메인 페이지로 이동하는 함수
   const handleMainButtonClick = () => {
-    navigate("/Main"); // 메인 페이지로 이동
+    navigate("/main", { state: { nickname: getStoredNickname() } });
+  };
+
+  // Function to retrieve the nickname from local storage
+  const getStoredNickname = () => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    return userInfo?.nickname || ""; // Return empty string if nickname is not available
   };
 
   return (
@@ -127,11 +134,11 @@ const Login = () => {
       <Title>로그인</Title>
       <p1>
         <Email>이메일</Email>
-        <Email_box></Email_box>
+        <Email_box onChange={(e) => setEmail(e.target.value)} />
       </p1>
       <p2>
         <Password>비밀번호</Password>
-        <Password_box></Password_box>
+        <Password_box onChange={(e) => setPassword(e.target.value)} />
       </p2>
 
       <Start_box onClick={handleMainButtonClick}>

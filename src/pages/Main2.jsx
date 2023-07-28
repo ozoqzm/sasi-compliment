@@ -1,9 +1,7 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-//import data from "./data.json";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 const Container = styled.div`
   position: relative;
@@ -138,8 +136,9 @@ const Apple = styled.div`
 
 const Main2 = () => {
   const [compls, setCompls] = useState([]);
-
   const navigate = useNavigate();
+  const location = useLocation();
+  const { nickname } = location.state || { nickname: "" };
 
   // 페이지 이동
   const gotoMypage = () => {
@@ -178,7 +177,9 @@ const Main2 = () => {
           <UserImg></UserImg>
         </UserCircle>
         {/* 이름 받아오기 */}
-        <TextBox>주연진님의 나무에요.</TextBox>
+        <TextBox>
+          {nickname ? `${nickname}님의 나무에요.` : "나무에요."}
+        </TextBox>
         <TextBox2>칭찬으로 나무에 열매를 맺어주세요!</TextBox2>
         <Tree>
           <AppleList>

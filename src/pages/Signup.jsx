@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -143,10 +143,17 @@ const Start_text = styled.div`
 `;
 
 const Signup = () => {
-  const navigate = useNavigate(); // useNavigate 훅을 초기화합니다
+  const navigate = useNavigate();
+  const [nickname, setNickname] = useState("");
+  const [email, setEmail] = useState(""); // 이메일 상태 정의
+  const [password, setPassword] = useState(""); // 비밀번호 상태 정의
+  // ... (이메일과 비밀번호 상태 등 추가)
 
   const handleStartBoxClick = () => {
-    navigate("/login"); // Start_box 버튼이 클릭되면 Login 페이지로 이동합니다
+    // 회원가입 정보를 저장하고, 메인 페이지로 이동
+    const userInfo = { nickname, email, password };
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    navigate("/login");
   };
 
   return (
@@ -154,15 +161,18 @@ const Signup = () => {
       <Title>회원가입</Title>
       <p1>
         <Name>닉네임</Name>
-        <Name_box></Name_box>
+        {/* 닉네임 입력 시 상태 업데이트 */}
+        <Name_box onChange={(e) => setNickname(e.target.value)} />
       </p1>
       <p2>
         <Email>이메일</Email>
-        <Email_box></Email_box>
+        {/* 이메일 입력 시 상태 업데이트 */}
+        <Email_box onChange={(e) => setEmail(e.target.value)} />
       </p2>
       <p3>
         <Password>비밀번호</Password>
-        <Password_box></Password_box>
+        {/* 비밀번호 입력 시 상태 업데이트 */}
+        <Password_box onChange={(e) => setPassword(e.target.value)} />
       </p3>
       <Start_box onClick={handleStartBoxClick}>
         <Start_text>시작하기</Start_text>
