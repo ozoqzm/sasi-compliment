@@ -147,7 +147,7 @@ const Main = () => {
   };
 
   const gotoSplash = () => {
-    navigate("/Splash");
+    navigate("/");
   };
 
   const [compls, setCompls] = useState([]);

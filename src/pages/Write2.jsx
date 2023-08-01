@@ -134,9 +134,15 @@ const Write2 = () => {
   };
 
   useEffect(() => {
+    const userInfoStr = localStorage.getItem("userInfo");
+    const userInfoObj = JSON.parse(userInfoStr);
+    const storedNickname = userInfoObj.nickname;
+
     if (anonymous === true) {
       setDate("익명");
-    } else setDate("닉네임"); // 전달받은 로그인 이름
+    } else {
+      setDate(storedNickname); // 전달받은 로그인 이름
+    }
   }, [anonymous]);
 
   // 이미지 업로드
