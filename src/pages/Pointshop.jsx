@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import ModalBasic_t from "./ModalBasic_t";
 
+
 const Container = styled.div`
   position: relative;
   max-width: 375px;
@@ -356,6 +357,7 @@ const Tree_styletext = styled.div`
 const Pointshop = () => {
   const navigate = useNavigate();
 
+
   const gotoMain = () => {
     navigate("/Main");
   };
@@ -366,6 +368,11 @@ const Pointshop = () => {
   // 모달창 노출
   const showModal = () => {
     setModalOpen(true);
+
+  // Main 이동
+  const gotoMain2 = () => {
+    navigate("/Main2"); // '/Profile'로 수정
+
   };
 
   return (
