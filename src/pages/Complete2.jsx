@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 //import data from "./data.json";
 import { useNavigate } from "react-router-dom";
+import ModalBasic_s2 from "./ModalBasic_s2";
 
 const Container = styled.div`
   position: relative;
@@ -82,6 +83,14 @@ const Complete2 = () => {
     navigate("/Main2");
   };
 
+  // 모달창 노출 여부 state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true);
+  };
+
   return (
     <Container>
       <ContentBox>
@@ -90,7 +99,10 @@ const Complete2 = () => {
           따뜻한 메세지를 전달했어요.<br></br>
           나무에 예쁜 열매가 맺힐 거에요.
         </TextBox2>
-        <CloseBtn onClick={gotoMain}>닫기</CloseBtn>
+        <CloseBtn onClick={showModal}>
+          닫기
+          {modalOpen && <ModalBasic_s2 setModalOpen={setModalOpen} />}
+        </CloseBtn>
       </ContentBox>
     </Container>
   );
