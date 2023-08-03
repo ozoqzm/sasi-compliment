@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import ModalBasic_t from "./ModalBasic_t";
+
 
 const Container = styled.div`
   position: relative;
@@ -351,11 +353,26 @@ const Tree_styletext = styled.div`
   color: #fcfcfc;
 `;
 
+//func
 const Pointshop = () => {
   const navigate = useNavigate();
+
+
+  const gotoMain = () => {
+    navigate("/Main");
+  };
+
+  // 모달창 노출 여부 state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true);
+
   // Main 이동
   const gotoMain2 = () => {
     navigate("/Main2"); // '/Profile'로 수정
+
   };
 
   return (
@@ -395,8 +412,11 @@ const Pointshop = () => {
       <Tree_examplebox>
         <Tree_exampletext>미리보기</Tree_exampletext>
       </Tree_examplebox>
-      <Tree_stylebox>
-        <Tree_styletext onClick={gotoMain2}>적용하기</Tree_styletext>
+      <Tree_stylebox onClick={showModal}>
+        <Tree_styletext>
+          적용하기
+          {modalOpen && <ModalBasic_t setModalOpen={setModalOpen} />}
+        </Tree_styletext>
       </Tree_stylebox>
     </Container>
   );

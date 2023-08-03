@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 //import data from "./data.json";
 import { useNavigate } from "react-router-dom";
+import ModalBasic_s from "./ModalBasic_s";
 
 const Container = styled.div`
   position: relative;
@@ -91,6 +92,14 @@ const Complete = () => {
     navigate("/Main");
   };
 
+  // 모달창 노출 여부 state
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true);
+  };
+
   return (
     <Container>
       <ContentBox>
@@ -102,7 +111,10 @@ const Complete = () => {
         {/* 이미지 흔들리도록 */}
         <Whale></Whale>
       </ContentBox>
-      <CloseBtn onClick={gotoMain}>닫기</CloseBtn>
+      <CloseBtn onClick={showModal}>
+        닫기
+        {modalOpen && <ModalBasic_s setModalOpen={setModalOpen} />}
+      </CloseBtn>
     </Container>
   );
 };

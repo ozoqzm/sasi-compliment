@@ -28,6 +28,7 @@ function App() {
       <GlobalStyle />
       <div>
         <Routes>
+
           <Route path="/" element={<Splash />} /> {/* Splash에서 시작 */}
           <Route path="/Main" element={<Main />} />{" "}
           <Route path="/Write" element={<Write />} />{" "}
