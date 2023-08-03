@@ -146,7 +146,7 @@ const Main2 = () => {
   };
 
   const gotoSplash = () => {
-    navigate("/Splash");
+    navigate("/");
   };
 
   useEffect(() => {

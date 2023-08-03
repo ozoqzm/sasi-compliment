@@ -126,7 +126,7 @@ const Write = () => {
       text: text,
       id: Date.now(),
     };
-
+    const userinfos = localStorage.getItem("userinfo"); // 로컬 스토리지에서 가져오기
     const compls = JSON.parse(localStorage.getItem("compls") || "[]");
     compls.push(newComplObj);
     localStorage.setItem("compls", JSON.stringify(compls));
@@ -134,9 +134,15 @@ const Write = () => {
   };
 
   useEffect(() => {
+    const userInfoStr = localStorage.getItem("userInfo");
+    const userInfoObj = JSON.parse(userInfoStr);
+    const storedNickname = userInfoObj.nickname;
+
     if (anonymous === true) {
       setDate("익명");
-    } else setDate("닉네임"); // 전달받은 로그인 이름
+    } else {
+      setDate(storedNickname); // 전달받은 로그인 이름
+    }
   }, [anonymous]);
 
   // 이미지 업로드

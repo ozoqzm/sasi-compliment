@@ -28,15 +28,15 @@ function App() {
       <GlobalStyle />
       <div>
         <Routes>
-          <Route path="/" element={<Splash />} />
-          {/* 시작페이지에서 시작 */}
+
+          <Route path="/" element={<Splash />} /> {/* Splash에서 시작 */}
           <Route path="/Main" element={<Main />} />{" "}
           <Route path="/Write" element={<Write />} />{" "}
           <Route path="/Complete" element={<Complete />} />{" "}
           <Route path="/Read" element={<Read />} />{" "}
           <Route path="/Main" element={<Main />} />{" "}
-          <Route path="/Splash" element={<Splash />} />{" "}
           <Route path="/Signup" element={<Signup />} />{" "}
+          <Route path="/Start" element={<Start />} />
           <Route path="/Point" element={<Point />} />{" "}
           <Route path="/Pointshop" element={<Pointshop />} />{" "}
           <Route path="/Login" element={<Login />} />{" "}
@@ -48,6 +48,7 @@ function App() {
           <Route path="/Main2" element={<Main2 />} />{" "}
           <Route path="/Write2" element={<Write2 />} />{" "}
           <Route path="/Read2" element={<Read2 />} />{" "}
+          <Route path="/Pointshop2" element={<Pointshop2 />} />{" "}
         </Routes>
       </div>
     </BrowserRouter>
